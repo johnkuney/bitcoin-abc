@@ -39,13 +39,13 @@ const { Panel } = Collapse;
 
 const SettingsLink = styled.a`
     text-decoration: underline;
-    color: ${props => props.theme.primary};
+    color: ${props => props.theme.ecashblue};
     :visited {
         text-decoration: underline;
-        color: ${props => props.theme.primary};
+        color: ${props => props.theme.ecashblue};
     }
     :hover {
-        color: ${props => props.theme.brandSecondary};
+        color: ${props => props.theme.ecashpurple};
     }
 `;
 
@@ -159,8 +159,8 @@ const SWButtonCtn = styled.div`
         cursor: pointer;
 
         :first-child:hover {
-            stroke: ${props => props.theme.primary};
-            fill: ${props => props.theme.primary};
+            stroke: ${props => props.theme.ecashblue};
+            fill: ${props => props.theme.ecashblue};
         }
         :hover {
             stroke: ${props => props.theme.settings.delete};
@@ -189,7 +189,7 @@ const AWRow = styled.div`
     h4 {
         font-size: 16px;
         display: inline-block;
-        color: ${props => props.theme.primary} !important;
+        color: ${props => props.theme.ecashblue} !important;
         margin: 0;
         text-align: right;
     }
@@ -205,7 +205,7 @@ const StyledConfigure = styled.div`
         font-size: 25px;
     }
     svg {
-        fill: ${props => props.theme.primary};
+        fill: ${props => props.theme.ecashblue};
     }
     p {
         color: ${props => props.theme.wallet.text.secondary};
@@ -236,7 +236,7 @@ const GeneralSettingsItem = styled.div`
         }
     }
     .ant-switch-checked {
-        background-color: ${props => props.theme.primary};
+        background-color: ${props => props.theme.ecashblue};
     }
 `;
 

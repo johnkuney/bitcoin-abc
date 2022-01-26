@@ -1,11 +1,11 @@
 import styled from 'styled-components';
 
 const PrimaryButton = styled.button`
-    border: 2px solid ${props => props.theme.primary};
+    border: 2px solid ${props => props.theme.ecashblue};
     color: ${props => props.theme.buttons.primary.color};
     background: none;
     font-weight: bold;
-    background-color: ${props => props.theme.primary};
+    background-color: ${props => props.theme.ecashblue};
     transition: all 0.5s ease;
     background-size: 200% auto;
     font-size: 18px;

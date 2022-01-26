@@ -30,23 +30,23 @@ const SentTx = styled(TxIcon)`
     svg {
         margin-right: -3px;
     }
-    fill: #fff;
+    fill: ${props => props.theme.contrast};
     transform: rotate(-35deg);
 `;
 const ReceivedTx = styled(TxIcon)`
     svg {
-        fill: ${props => props.theme.primary};
+        fill: ${props => props.theme.ecashblue};
     }
-    border-color: ${props => props.theme.primary};
+    border-color: ${props => props.theme.ecashblue};
 `;
 const GenesisTx = styled(TxIcon)`
-    border-color: ${props => props.theme.genesis};
+    border-color: ${props => props.theme.genesisGreen};
     svg {
-        fill: ${props => props.theme.genesis};
+        fill: ${props => props.theme.genesisGreen};
     }
 `;
 const UnparsedTx = styled(TxIcon)`
-    color: ${props => props.theme.primary} !important;
+    color: ${props => props.theme.ecashblue} !important;
 `;
 const DateType = styled.div`
     text-align: left;
@@ -63,16 +63,16 @@ const LeftTextCtn = styled.div`
     flex-direction: column;
     margin-left: 10px;
     h3 {
-        color: #fff;
+        color: ${props => props.theme.contrast};
         font-size: 14px;
         font-weight: 700;
         margin: 0;
     }
     .genesis {
-        color: ${props => props.theme.genesis};
+        color: ${props => props.theme.genesisGreen};
     }
     .received {
-        color: ${props => props.theme.primary};
+        color: ${props => props.theme.ecashblue};
     }
     h4 {
         font-size: 12px;
@@ -88,16 +88,16 @@ const RightTextCtn = styled.div`
     flex-direction: column;
     margin-left: 10px;
     h3 {
-        color: #fff;
+        color: ${props => props.theme.contrast};
         font-size: 14px;
         font-weight: 700;
         margin: 0;
     }
     .genesis {
-        color: ${props => props.theme.genesis};
+        color: ${props => props.theme.genesisGreen};
     }
     .received {
-        color: ${props => props.theme.primary};
+        color: ${props => props.theme.ecashblue};
     }
     h4 {
         font-size: 12px;
@@ -119,14 +119,14 @@ const OpReturnType = styled.div`
         display: inline-block;
     }
     p {
-        color: #fff;
+        color: ${props => props.theme.contrast};
         margin: 0;
         font-size: 14px;
         margin-bottom: 10px;
         overflow-wrap: break-word;
     }
     a {
-        color: #fff;
+        color: ${props => props.theme.contrast};
         margin: 0;
         font-size: 10px;
         border: 1px solid ${props => props.theme.contrast};
@@ -136,9 +136,9 @@ const OpReturnType = styled.div`
     }
     a:hover {
         opacity: 1;
-        border-color: ${props => props.theme.primary};
-        color: #fff;
-        background: ${props => props.theme.primary};
+        border-color: ${props => props.theme.ecashblue};
+        color: ${props => props.theme.contrast};
+        background: ${props => props.theme.ecashblue};
     }
 `;
 const SentLabel = styled.span`
@@ -147,16 +147,16 @@ const SentLabel = styled.span`
 `;
 const ReceivedLabel = styled.span`
     font-weight: bold;
-    color: ${props => props.theme.primary} !important;
+    color: ${props => props.theme.ecashblue} !important;
 `;
 const GenesisLabel = styled.span`
     font-weight: bold;
-    color: ${props => props.theme.genesis} !important;
+    color: ${props => props.theme.genesisGreen} !important;
 `;
 const CashtabMessageLabel = styled.span`
     text-align: left;
     font-weight: bold;
-    color: ${props => props.theme.primary} !important;
+    color: ${props => props.theme.ecashblue} !important;
     white-space: nowrap;
 `;
 const EncryptionMessageLabel = styled.span`
@@ -178,7 +178,7 @@ const MessageLabel = styled.span`
     white-space: nowrap;
 `;
 const ReplyMessageLabel = styled.span`
-    color: ${props => props.theme.primary} !important;
+    color: ${props => props.theme.ecashblue} !important;
 `;
 
 const TxInfo = styled.div`
@@ -189,16 +189,16 @@ const TxInfo = styled.div`
     margin-left: 10px;
     flex-grow: 2;
     h3 {
-        color: #fff;
+        color: ${props => props.theme.contrast};
         font-size: 14px;
         font-weight: 700;
         margin: 0;
     }
     .genesis {
-        color: ${props => props.theme.genesis};
+        color: ${props => props.theme.genesisGreen};
     }
     .received {
-        color: ${props => props.theme.primary};
+        color: ${props => props.theme.ecashblue};
     }
     h4 {
         font-size: 12px;
@@ -207,7 +207,7 @@ const TxInfo = styled.div`
     }
 
     /* color: ${props =>
-        props.outgoing ? props.theme.secondary : props.theme.primary}; */
+        props.outgoing ? props.theme.secondary : props.theme.ecashblue}; */
 
     @media screen and (max-width: 500px) {
         font-size: 0.8rem;
@@ -220,7 +220,7 @@ const TokenInfo = styled.div`
     justify-content: flex-end;
 
     color: ${props =>
-        props.outgoing ? props.theme.secondary : props.theme.primary};
+        props.outgoing ? props.theme.secondary : props.theme.ecashblue};
 
     @media screen and (max-width: 500px) {
         font-size: 0.8rem;
@@ -261,7 +261,7 @@ const TxWrapper = styled.div`
     display: flex;
     align-items: center;
     border-top: 1px solid rgba(255, 255, 255, 0.12);
-    color: #fff;
+    color: ${props => props.theme.contrast};
     padding: 10px 0;
     flex-wrap: wrap;
 

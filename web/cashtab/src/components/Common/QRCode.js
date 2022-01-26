@@ -16,7 +16,7 @@ export const StyledRawQRCode = styled(RawQRCode)`
     }
     :hover {
         border-color: ${({ xec = 0, ...props }) =>
-            xec === 1 ? props.theme.primary : props.theme.qr.token};
+            xec === 1 ? props.theme.ecashblue : props.theme.qr.token};
     }
     @media (max-width: 768px) {
         border-radius: 18px;
@@ -31,7 +31,7 @@ const Copied = styled.div`
     width: 100%;
     text-align: center;
     background-color: ${({ xec = 0, ...props }) =>
-        xec === 1 ? props.theme.primary : props.theme.qr.token};
+        xec === 1 ? props.theme.ecashblue : props.theme.qr.token};
     border: 1px solid;
     border-color: ${({ xec = 0, ...props }) =>
         xec === 1
@@ -50,7 +50,7 @@ const PrefixLabel = styled.span`
     text-align: right;
     font-weight: bold;
     color: ${({ xec = 0, ...props }) =>
-        xec === 1 ? props.theme.primary : props.theme.brandSecondary};
+        xec === 1 ? props.theme.ecashblue : props.theme.ecashpurple};
     @media (max-width: 768px) {
         font-size: 12px;
     }
@@ -66,7 +66,7 @@ const PrefixLabel = styled.span`
 `;
 const AddressHighlightTrim = styled.span`
     font-weight: bold;
-    color: #fff;
+    color: ${props => props.theme.contrast};
     @media (max-width: 768px) {
         font-size: 12px;
     }

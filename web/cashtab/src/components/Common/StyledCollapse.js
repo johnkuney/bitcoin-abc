@@ -39,7 +39,7 @@ export const TokenCollapse = styled(Collapse)`
            }
             `
             : `
-                background: ${props.theme.primary} !important;
+                background: ${props.theme.ecashblue} !important;
            .ant-collapse-header {
                font-size: 18px;
                font-weight: bold;

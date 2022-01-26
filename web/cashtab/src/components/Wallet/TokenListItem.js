@@ -20,18 +20,18 @@ const Wrapper = styled.div`
     display: flex;
     align-items: center;
     border-top: 1px solid rgba(255, 255, 255, 0.12);
-    color: #fff;
+    color: ${props => props.theme.contrast};
     padding: 10px 0;
     justify-content: space-between;
     h4 {
         font-size: 16px;
-        color: #fff;
+        color: ${props => props.theme.contrast};
         margin: 0;
         font-weight: bold;
     }
     :hover {
         h4 {
-            color: ${props => props.theme.brandSecondary};
+            color: ${props => props.theme.ecashpurple};
         }
     }
 `;

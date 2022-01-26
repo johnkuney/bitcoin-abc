@@ -11,7 +11,7 @@ export const LoadingCtn = styled.div`
     svg {
         width: 50px;
         height: 50px;
-        fill: ${props => props.theme.primary};
+        fill: ${props => props.theme.ecashblue};
     }
 `;
 
@@ -25,7 +25,7 @@ export const FormLabel = styled.label`
     text-align: left;
     width: 100%;
     display: inline-block;
-    color: #fff;
+    color: ${props => props.theme.contrast};
 `;
 
 export const WalletInfoCtn = styled.div`

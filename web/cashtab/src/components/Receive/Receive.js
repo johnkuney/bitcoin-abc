@@ -10,7 +10,7 @@ export const ReceiveCtn = styled.div`
     width: 100%;
     margin-top: 100px;
     h2 {
-        color: #fff;
+        color: ${props => props.theme.contrast};
         margin: 0 0 20px;
     }
 `;
@@ -43,7 +43,7 @@ export const SwitchBtn = styled.div`
     width: 100px;
     margin: 0 1px;
     text-decoration: none;
-    background: ${props => props.theme.primary};
+    background: ${props => props.theme.ecashblue};
     user-select: none;
     :first-child {
         border-radius: 100px 0 0 100px;

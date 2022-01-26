@@ -4,7 +4,7 @@ import { Modal, Spin } from 'antd';
 import { CashLoadingIcon } from '@components/Common/CustomIcons';
 import '../index.css';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
-import { theme } from '@assets/styles/theme';
+import { theme } from '@assets/styles/theme2';
 import { ReactComponent as HomeIcon } from '@assets/home.svg';
 import { ReactComponent as SendIcon } from '@assets/send.svg';
 import { ReactComponent as ReceiveIcon } from '@assets/receive.svg';
@@ -30,7 +30,6 @@ import {
 } from 'react-router-dom';
 // Easter egg imports not used in extension/src/components/App.js
 import TabCash from '@assets/tabcash.png';
-import ABC from '@assets/logo_topright.png';
 import { checkForTokenById } from '@utils/tokenMethods.js';
 // Biometric security import not used in extension/src/components/App.js
 import ProtectableComponentWrapper from './Authentication/ProtectableComponentWrapper';
@@ -44,7 +43,7 @@ const GlobalStyle = createGlobalStyle`
     }    
     
     .ant-modal-wrap > div > div.ant-modal-content > div > div > div.ant-modal-confirm-btns > button:hover,.ant-modal-confirm-btns > button:hover, .ant-modal-footer > button:hover, #cropControlsConfirm:hover {
-        color: ${props => props.theme.primary};
+        color: ${props => props.theme.ecashblue};
         transition: color 0.3s;
         background-color: ${props => props.theme.modals.buttons.background};
     }   
@@ -54,12 +53,12 @@ const GlobalStyle = createGlobalStyle`
         background-color: ${props => props.theme.contrast} !important;
     }
     .cashLoadingIcon {
-        color: ${props => props.theme.primary} !important;
+        color: ${props => props.theme.ecashblue} !important;
         font-size: 48px !important;
     }
     .selectedCurrencyOption:hover {
         color: ${props => props.theme.contrast} !important;
-        background-color: ${props => props.theme.primary} !important;
+        background-color: ${props => props.theme.ecashblue} !important;
     }
     #addrSwitch, #cropSwitch {
         .ant-switch-checked {
@@ -75,10 +74,10 @@ const GlobalStyle = createGlobalStyle`
         background-color: ${props => props.theme.forms.border} !important;
     }
     .ant-slider-track {
-        background-color: ${props => props.theme.primary} !important;
+        background-color: ${props => props.theme.ecashblue} !important;
     }
     .ant-descriptions-bordered .ant-descriptions-row {
-    background: #fff;
+    background: ${props => props.theme.contrast};
 }
 `;
 
@@ -134,9 +133,9 @@ export const NavButton = styled.button`
     ${({ active, ...props }) =>
         active &&
         `    
-        color: ${props.theme.primary};
+        color: ${props.theme.ecashblue};
         svg {
-            fill: ${props.theme.primary};
+            fill: ${props.theme.ecashblue};
         }
   `}
 `;

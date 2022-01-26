@@ -52,7 +52,7 @@ const { Dragger } = Upload;
 export const CreateTokenCtn = styled.div`
     margin-top: 20px;
     h3 {
-        color: #fff;
+        color: ${props => props.theme.contrast};
     }
     .ant-form-item {
         margin-bottom: 0px;

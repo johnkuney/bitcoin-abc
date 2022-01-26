@@ -63,7 +63,7 @@ export const LoadingBlock = styled.div`
     svg {
         width: 50px;
         height: 50px;
-        fill: ${props => props.theme.primary};
+        fill: ${props => props.theme.ecashblue};
     }
 `;
 

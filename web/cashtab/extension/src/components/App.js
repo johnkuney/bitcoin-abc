@@ -41,7 +41,7 @@ const GlobalStyle = createGlobalStyle`
     }    
     
     .ant-modal-wrap > div > div.ant-modal-content > div > div > div.ant-modal-confirm-btns > button:hover,.ant-modal-confirm-btns > button:hover, .ant-modal-footer > button:hover, #cropControlsConfirm:hover {
-        color: ${props => props.theme.primary};
+        color: ${props => props.theme.ecashblue};
         transition: color 0.3s;
         background-color: ${props => props.theme.modals.buttons.background};
     }   
@@ -51,12 +51,12 @@ const GlobalStyle = createGlobalStyle`
         background-color: ${props => props.theme.contrast} !important;
     }
     .cashLoadingIcon {
-        color: ${props => props.theme.primary} !important;
+        color: ${props => props.theme.ecashblue} !important;
         font-size: 48px !important;
     }
     .selectedCurrencyOption:hover {
         color: ${props => props.theme.contrast} !important;
-        background-color: ${props => props.theme.primary} !important;
+        background-color: ${props => props.theme.ecashblue} !important;
     }
     #addrSwitch, #cropSwitch {
         .ant-switch-checked {
@@ -72,7 +72,7 @@ const GlobalStyle = createGlobalStyle`
         background-color: ${props => props.theme.forms.border} !important;
     }
     .ant-slider-track {
-        background-color: ${props => props.theme.primary} !important;
+        background-color: ${props => props.theme.ecashblue} !important;
     }
 `;
 
@@ -125,9 +125,9 @@ export const NavButton = styled.button`
     ${({ active, ...props }) =>
         active &&
         `    
-        color: ${props.theme.primary};
+        color: ${props.theme.ecashblue};
         .anticon {
-            color: ${props.theme.primary};
+            color: ${props.theme.ecashblue};
         }
   `}
 `;
@@ -174,7 +174,7 @@ export const HeaderCtn = styled.div`
         color: ${props => props.theme.wallet.text.secondary};
 
         :hover {
-            color: ${props => props.theme.primary};
+            color: ${props => props.theme.ecashblue};
         }
     }
 

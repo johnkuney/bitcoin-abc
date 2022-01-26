@@ -48,18 +48,18 @@ export const TabLabel = styled.button`
         active &&
         `    
         color: ${props.theme.contrast};
-        border-bottom: 2px solid ${props.theme.primary}   
+        border-bottom: 2px solid ${props.theme.ecashblue}   
        
   `}
     ${({ token, ...props }) =>
         token &&
         `
-        border-color:${props.theme.brandSecondary} 
+        border-color:${props.theme.ecashpurple} 
   `}
 `;
 
 export const TabPane = styled.div`
-    color: #fff;
+    color: ${props => props.theme.contrast};
     ${({ active }) =>
         !active &&
         `    
@@ -97,7 +97,7 @@ export const SwitchBtn = styled.div`
     width: 100px;
     margin: 0 1px;
     text-decoration: none;
-    background: ${props => props.theme.primary};
+    background: ${props => props.theme.ecashblue};
     box-shadow: ${props => props.theme.wallet.switch.activeCash.shadow};
     user-select: none;
     :first-child {
@@ -122,10 +122,10 @@ export const Links = styled(Link)`
         fill: ${props => props.theme.wallet.text.secondary};
     }
     :hover {
-        color: ${props => props.theme.primary};
-        border-color: ${props => props.theme.primary};
+        color: ${props => props.theme.ecashblue};
+        border-color: ${props => props.theme.ecashblue};
         svg {
-            fill: ${props => props.theme.primary};
+            fill: ${props => props.theme.ecashblue};
         }
     }
     @media (max-width: 768px) {
@@ -149,10 +149,10 @@ export const ExternalLink = styled.a`
         transition: all 200ms ease-in-out;
     }
     :hover {
-        color: ${props => props.theme.primary};
-        border-color: ${props => props.theme.primary};
+        color: ${props => props.theme.ecashblue};
+        border-color: ${props => props.theme.ecashblue};
         svg {
-            fill: ${props => props.theme.primary};
+            fill: ${props => props.theme.ecashblue};
         }
     }
     @media (max-width: 768px) {
