@@ -1,17 +1,21 @@
 export const theme = {
     primary: '#00ABE7',
-    brandSecondary: '#CD0BC3',
+    brandSecondary: '#ff21d0',
     contrast: '#fff',
+    genesis: '#00e781',
     app: {
         sidebars: `url("/cashtab_bg.png")`,
-        background: '#fbfbfd',
+        background: '#d5d5d7',
+        backgroundImage: `url("/cashtab_bg.png")`,
     },
     wallet: {
         background: '#fff',
         encryption: '#DC143C',
         text: {
-            primary: '#273498',
+            primary: '#fff',
             secondary: '#273498',
+            lightWhite: 'rgba(255,255,255,0.4)',
+            dropdown: '#000',
         },
         switch: {
             activeCash: {
@@ -26,7 +30,7 @@ export const theme = {
             },
         },
         borders: { color: '#e2e2e2' },
-        shadow: 'rgba(0, 0, 0, 1)',
+        shadow: 'rgba(0, 0, 0, 0.2)',
     },
     tokenListItem: {
         background: '#ffffff',
@@ -37,7 +41,7 @@ export const theme = {
         hoverBorder: '#231F20',
     },
     footer: {
-        background: '#fff',
+        background: '#152b45',
         navIconInactive: '#949494',
     },
     forms: {

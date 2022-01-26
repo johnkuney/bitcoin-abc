@@ -27,7 +27,7 @@ export const AntdFormCss = css`
         font-weight: bold;
         color: ${props => props.theme.forms.text};
         opacity: 1;
-        height: 50px;
+        height: 45px;
     }
     textarea.ant-input,
     .ant-select-selection {
@@ -46,7 +46,7 @@ export const AntdFormCss = css`
         border: 1px solid ${props => props.theme.wallet.borders.color} !important;
     }
     .ant-select-selector {
-        height: 60px !important;
+        height: 55px !important;
         border: 1px solid ${props => props.theme.wallet.borders.color} !important;
         background-color: ${props =>
             props.theme.forms.selectionBackground}!important;
@@ -78,7 +78,7 @@ export const AntdFormCss = css`
     }
     .ant-select-single .ant-select-selector .ant-select-selection-item,
     .ant-select-single .ant-select-selector .ant-select-selection-placeholder {
-        line-height: 60px;
+        line-height: 55px;
         text-align: left;
         color: ${props => props.theme.forms.text};
         font-weight: bold;
@@ -197,8 +197,8 @@ export const SendBchInput = ({
                     <InputNumberAddonText
                         style={{
                             width: '10%',
-                            height: '60px',
-                            lineHeight: '60px',
+                            height: '55px',
+                            lineHeight: '55px',
                         }}
                         disabled={!!(inputProps || {}).disabled}
                         onClick={!(inputProps || {}).disabled && onMax}

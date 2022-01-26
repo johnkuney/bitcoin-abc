@@ -1,15 +1,17 @@
 import styled from 'styled-components';
 
 const PrimaryButton = styled.button`
-    border: none;
+    border: 2px solid ${props => props.theme.primary};
     color: ${props => props.theme.buttons.primary.color};
-    background-image: ${props => props.theme.buttons.primary.backgroundImage};
+    background: none;
+    font-weight: bold;
+    background-color: ${props => props.theme.primary};
     transition: all 0.5s ease;
     background-size: 200% auto;
     font-size: 18px;
     width: 100%;
     padding: 20px 0;
-    border-radius: 4px;
+    border-radius: 0px;
     margin-bottom: 20px;
     cursor: pointer;
     :hover {

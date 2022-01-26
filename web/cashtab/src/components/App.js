@@ -5,13 +5,12 @@ import { CashLoadingIcon } from '@components/Common/CustomIcons';
 import '../index.css';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 import { theme } from '@assets/styles/theme';
-import {
-    FolderOpenFilled,
-    CaretRightOutlined,
-    SettingFilled,
-    AppstoreAddOutlined,
-} from '@ant-design/icons';
+import { ReactComponent as HomeIcon } from '@assets/home.svg';
+import { ReactComponent as SendIcon } from '@assets/send.svg';
+import { ReactComponent as ReceiveIcon } from '@assets/receive.svg';
+import { ReactComponent as SettingsIcon } from '@assets/cog.svg';
 import Wallet from '@components/Wallet/Wallet';
+import Receive from '@components/Receive/Receive';
 import Tokens from '@components/Tokens/Tokens';
 import Send from '@components/Send/Send';
 import SendToken from '@components/Send/SendToken';
@@ -21,7 +20,7 @@ import CashTab from '@assets/cashtab_xec.png';
 import './App.css';
 import { WalletContext } from '@utils/context';
 import { isValidStoredWallet } from '@utils/cashMethods';
-import WalletLabel from '@components/Common/WalletLabel.js';
+// import WalletLabel from '@components/Common/WalletLabel.js';
 import {
     Route,
     Redirect,
@@ -51,7 +50,7 @@ const GlobalStyle = createGlobalStyle`
     }   
     .selectedCurrencyOption {
         text-align: left;
-        color: ${props => props.theme.wallet.text.secondary} !important;
+        color: ${props => props.theme.wallet.text.dropdown} !important;
         background-color: ${props => props.theme.contrast} !important;
     }
     .cashLoadingIcon {
@@ -78,23 +77,41 @@ const GlobalStyle = createGlobalStyle`
     .ant-slider-track {
         background-color: ${props => props.theme.primary} !important;
     }
+    .ant-descriptions-bordered .ant-descriptions-row {
+    background: #fff;
+}
 `;
 
 const CustomApp = styled.div`
     text-align: center;
-    font-family: 'Gilroy', sans-serif;
+    font-family: 'Poppins', sans-serif;
     background-color: ${props => props.theme.app.background};
+    background-size: 100px 171px;
+    background-image: ${props => props.theme.app.backgroundImage};
+    background-attachment: fixed;
+    /* animation: animatedBackground 100s linear infinite alternate;
+    @keyframes animatedBackground {
+        from {
+            background-position: 0 0;
+        }
+        to {
+            background-position: 100% 100%;
+        }
+    } */
 `;
 
 const Footer = styled.div`
     z-index: 2;
+    height: 80px;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
     background-color: ${props => props.theme.footer.background};
-    border-radius: 20px 20px 0 0;
     position: fixed;
     bottom: 0;
     width: 500px;
-    box-shadow: rgb(136 172 243 / 25%) 0px 10px 30px,
-        rgb(0 0 0 / 3%) 0px 1px 1px, rgb(0 51 167 / 10%) 0px 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 50px;
     @media (max-width: 768px) {
         width: 100%;
     }
@@ -106,33 +123,20 @@ export const NavButton = styled.button`
         outline: none;
     }
     cursor: pointer;
-    padding: 24px 12px 12px 12px;
-    margin: 0 28px;
-    @media (max-width: 475px) {
-        margin: 0 20px;
-    }
-    @media (max-width: 420px) {
-        margin: 0 12px;
-    }
-    @media (max-width: 350px) {
-        margin: 0 8px;
-    }
-    background-color: ${props => props.theme.footer.background};
+    padding: 0;
+    background: none;
     border: none;
-    font-size: 10.5px;
-    font-weight: bold;
-    .anticon {
-        display: block;
-        color: ${props => props.theme.footer.navIconInactive};
-        font-size: 24px;
-        margin-bottom: 6px;
+    font-size: 10px;
+    svg {
+        fill: ${props => props.theme.contrast};
+        width: 26px;
     }
     ${({ active, ...props }) =>
         active &&
         `    
         color: ${props.theme.primary};
-        .anticon {
-            color: ${props.theme.primary};
+        svg {
+            fill: ${props.theme.primary};
         }
   `}
 `;
@@ -143,17 +147,32 @@ export const WalletBody = styled.div`
     justify-content: center;
     width: 100%;
     min-height: 100vh;
-    background-image: ${props => props.theme.app.sidebars};
-    background-attachment: fixed;
 `;
 
 export const WalletCtn = styled.div`
     position: relative;
     width: 500px;
-    background-color: ${props => props.theme.footerBackground};
     min-height: 100vh;
-    padding: 10px 30px 120px 30px;
-    background: ${props => props.theme.wallet.background};
+    padding: 0 0 100px;
+    /* background: ${props => props.theme.wallet.background}; */
+    /* background: rgb(23, 28, 50);
+    background: -moz-linear-gradient(
+        59deg,
+        rgba(23, 28, 50, 1) 0%,
+        rgba(16, 75, 109, 1) 59%
+    );
+    background: -webkit-linear-gradient(
+        59deg,
+        rgba(23, 28, 50, 1) 0%,
+        rgba(16, 75, 109, 1) 59%
+    );
+    background: linear-gradient(
+        59deg,
+        rgba(23, 28, 50, 1) 0%,
+        rgba(16, 75, 109, 1) 59%
+    ); */
+    background: #152b45;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#171c32",endColorstr="#104b6d",GradientType=1);
     -webkit-box-shadow: 0px 0px 24px 1px ${props => props.theme.wallet.shadow};
     -moz-box-shadow: 0px 0px 24px 1px ${props => props.theme.wallet.shadow};
     box-shadow: 0px 0px 24px 1px ${props => props.theme.wallet.shadow};
@@ -170,24 +189,7 @@ export const HeaderCtn = styled.div`
     align-items: center;
     justify-content: center;
     width: 100%;
-    padding: 20px 0 30px;
-    margin-bottom: 20px;
-    justify-content: space-between;
-
-    a {
-        color: ${props => props.theme.wallet.text.secondary};
-
-        :hover {
-            color: ${props => props.theme.primary};
-        }
-    }
-
-    @media (max-width: 768px) {
-        a {
-            font-size: 12px;
-        }
-        padding: 10px 0 20px;
-    }
+    padding: 15px 0;
 `;
 
 export const CashTabLogo = styled.img`
@@ -263,21 +265,19 @@ const App = () => {
                                     <EasterEgg src={TabCash} alt="tabcash" />
                                 )}
                                 {/*End component not included in extension as desktop only*/}
-                                {/*Begin component not included in extension as replaced by open in tab link*/}
-                                <a
-                                    href="https://e.cash/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                >
-                                    <AbcLogo src={ABC} alt="abc" />
-                                </a>
-                                {/*Begin component not included in extension as replaced by open in tab link*/}
                             </HeaderCtn>
                             <ProtectableComponentWrapper>
-                                <WalletLabel name={wallet.name}></WalletLabel>
+                                {/* <WalletLabel name={wallet.name}></WalletLabel> */}
                                 <Switch>
                                     <Route path="/wallet">
                                         <Wallet />
+                                    </Route>
+                                    <Route path="/receive">
+                                        <Receive
+                                            passLoadingStatus={
+                                                setLoadingUtxosAfterSend
+                                            }
+                                        />
                                     </Route>
                                     <Route path="/tokens">
                                         <Tokens
@@ -320,31 +320,31 @@ const App = () => {
                                     active={selectedKey === 'wallet'}
                                     onClick={() => history.push('/wallet')}
                                 >
-                                    <FolderOpenFilled />
-                                    Wallet
-                                </NavButton>
-
-                                <NavButton
-                                    active={selectedKey === 'tokens'}
-                                    onClick={() => history.push('/tokens')}
-                                >
-                                    <AppstoreAddOutlined />
-                                    eTokens
+                                    <HomeIcon />
                                 </NavButton>
 
                                 <NavButton
                                     active={selectedKey === 'send'}
                                     onClick={() => history.push('/send')}
                                 >
-                                    <CaretRightOutlined />
-                                    Send
+                                    <SendIcon
+                                        style={{
+                                            transform: 'rotate(-35deg)',
+                                            marginTop: '-9px',
+                                        }}
+                                    />
+                                </NavButton>
+                                <NavButton
+                                    active={selectedKey === 'receive'}
+                                    onClick={() => history.push('receive')}
+                                >
+                                    <ReceiveIcon />
                                 </NavButton>
                                 <NavButton
                                     active={selectedKey === 'configure'}
                                     onClick={() => history.push('/configure')}
                                 >
-                                    <SettingFilled />
-                                    Settings
+                                    <SettingsIcon />
                                 </NavButton>
                             </Footer>
                         ) : null}

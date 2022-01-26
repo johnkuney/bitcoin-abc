@@ -1,4 +1,5 @@
 import React, { useState, useCallback } from 'react';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { AntdFormWrapper } from '@components/Common/EnhancedInputs';
 import { TokenCollapse } from '@components/Common/StyledCollapse';
@@ -36,7 +37,7 @@ import {
     Switch,
 } from 'antd';
 const { Panel } = Collapse;
-import { TokenParamLabel } from '@components/Common/Atoms';
+import { TokenParamLabel, FormLabel } from '@components/Common/Atoms';
 import {
     createTokenNotification,
     tokenIconSubmitSuccess,
@@ -47,6 +48,16 @@ import getCroppedImg from '@utils/icons/cropImage';
 import getRoundImg from '@utils/icons/roundImage';
 import getResizedImage from '@utils/icons/resizeImage';
 const { Dragger } = Upload;
+
+export const CreateTokenCtn = styled.div`
+    margin-top: 20px;
+    h3 {
+        color: #fff;
+    }
+    .ant-form-item {
+        margin-bottom: 0px;
+    }
+`;
 
 const CreateTokenForm = ({
     BCH,
@@ -472,15 +483,18 @@ const CreateTokenForm = ({
                     : newTokenDocumentUrl}
                 <br />
             </Modal>
-            <>
-                <TokenCollapse
+            <CreateTokenCtn>
+                <h3>Create a Token</h3>
+                {/* <TokenCollapse
                     collapsible={disabled ? 'disabled' : true}
                     disabled={disabled}
                     style={{
                         marginBottom: '24px',
                     }}
                 >
-                    <Panel header="Create eToken" key="1">
+                    <Panel header="Create eToken" key="1"> */}
+                {!disabled && (
+                    <>
                         <AntdFormWrapper>
                             <Form
                                 size="small"
@@ -488,6 +502,7 @@ const CreateTokenForm = ({
                                     width: 'auto',
                                 }}
                             >
+                                <FormLabel>Token Name</FormLabel>
                                 <Form.Item
                                     validateStatus={
                                         newTokenNameIsValid === null ||
@@ -503,7 +518,7 @@ const CreateTokenForm = ({
                                     }
                                 >
                                     <Input
-                                        addonBefore="Name"
+                                        // addonBefore="Name"
                                         placeholder="Enter a name for your token"
                                         name="newTokenName"
                                         value={newTokenName}
@@ -512,6 +527,7 @@ const CreateTokenForm = ({
                                         }
                                     />
                                 </Form.Item>
+                                <FormLabel>Ticker</FormLabel>
                                 <Form.Item
                                     validateStatus={
                                         newTokenTickerIsValid === null ||
@@ -527,7 +543,7 @@ const CreateTokenForm = ({
                                     }
                                 >
                                     <Input
-                                        addonBefore="Ticker"
+                                        // addonBefore="Ticker"
                                         placeholder="Enter a ticker for your token"
                                         name="newTokenTicker"
                                         value={newTokenTicker}
@@ -536,6 +552,7 @@ const CreateTokenForm = ({
                                         }
                                     />
                                 </Form.Item>
+                                <FormLabel>Decimals</FormLabel>
                                 <Form.Item
                                     validateStatus={
                                         newTokenDecimalsIsValid === null ||
@@ -551,7 +568,7 @@ const CreateTokenForm = ({
                                     }
                                 >
                                     <Input
-                                        addonBefore="Decimals"
+                                        // addonBefore="Decimals"
                                         placeholder="Enter number of decimal places"
                                         name="newTokenDecimals"
                                         type="number"
@@ -561,6 +578,7 @@ const CreateTokenForm = ({
                                         }
                                     />
                                 </Form.Item>
+                                <FormLabel>Supply</FormLabel>
                                 <Form.Item
                                     validateStatus={
                                         newTokenInitialQtyIsValid === null ||
@@ -576,7 +594,7 @@ const CreateTokenForm = ({
                                     }
                                 >
                                     <Input
-                                        addonBefore="Supply"
+                                        // addonBefore="Supply"
                                         placeholder="Enter the fixed supply of your token"
                                         name="newTokenInitialQty"
                                         type="number"
@@ -586,6 +604,7 @@ const CreateTokenForm = ({
                                         }
                                     />
                                 </Form.Item>
+                                <FormLabel>Document URL</FormLabel>
                                 <Form.Item
                                     validateStatus={
                                         newTokenDocumentUrlIsValid === null ||
@@ -601,7 +620,7 @@ const CreateTokenForm = ({
                                     }
                                 >
                                     <Input
-                                        addonBefore="Document URL"
+                                        // addonBefore="Document URL"
                                         placeholder="Enter a website for your token"
                                         name="newTokenDocumentUrl"
                                         value={newTokenDocumentUrl}
@@ -610,6 +629,7 @@ const CreateTokenForm = ({
                                         }
                                     />
                                 </Form.Item>
+                                <FormLabel>Add Image</FormLabel>
                                 <Form.Item>
                                     <Dragger
                                         multiple={false}
@@ -766,16 +786,20 @@ const CreateTokenForm = ({
                                 </Form.Item>
                             </Form>
                         </AntdFormWrapper>
+
                         <SmartButton
                             onClick={() => setShowConfirmCreateToken(true)}
                             disabled={!tokenGenesisDataIsValid}
+                            style={{ marginTop: '30px' }}
                         >
                             <PlusSquareOutlined />
                             &nbsp;Create eToken
                         </SmartButton>
-                    </Panel>
-                </TokenCollapse>
-            </>
+                    </>
+                )}
+                {/* </Panel>
+                </TokenCollapse> */}
+            </CreateTokenCtn>
         </>
     );
 };

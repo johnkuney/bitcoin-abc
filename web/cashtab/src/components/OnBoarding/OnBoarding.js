@@ -16,8 +16,16 @@ import PrimaryButton, {
 import { currency } from '@components/Common/Ticker.js';
 import { Event } from '@utils/GoogleAnalytics';
 
+export const WelcomeCtn = styled.div`
+    margin-top: 20px;
+    padding: 0px 30px;
+    color: ${props => props.theme.contrast};
+    h2 {
+        color: ${props => props.theme.contrast};
+    }
+`;
+
 export const WelcomeText = styled.p`
-    color: ${props => props.theme.wallet.text.secondary};
     width: 100%;
     font-size: 16px;
     margin-bottom: 60px;
@@ -82,7 +90,7 @@ const OnBoarding = () => {
     }
 
     return (
-        <>
+        <WelcomeCtn>
             <h2>Welcome to Cashtab!</h2>
             <WelcomeText>
                 Cashtab is an{' '}
@@ -148,7 +156,7 @@ const OnBoarding = () => {
                     </Form>
                 </AntdFormWrapper>
             )}
-        </>
+        </WelcomeCtn>
     );
 };
 

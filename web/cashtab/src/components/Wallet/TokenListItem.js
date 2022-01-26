@@ -8,69 +8,74 @@ import { currency } from '@components/Common/Ticker';
 const TokenIcon = styled.div`
     height: 32px;
     width: 32px;
+    margin-right: 10px;
 `;
 
-const BalanceAndTicker = styled.div`
-    font-size: 1rem;
+const TokenNameCtn = styled.div`
+    display: flex;
+    align-items: center;
 `;
 
 const Wrapper = styled.div`
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 15px 25px;
-    border-radius: 16px;
-    background: ${props => props.theme.tokenListItem.background};
-    margin-bottom: 10px;
-    box-shadow: ${props => props.theme.tokenListItem.boxShadow};
-    border: 1px solid ${props => props.theme.tokenListItem.border};
-
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+    color: #fff;
+    padding: 10px 0;
+    justify-content: space-between;
+    h4 {
+        font-size: 16px;
+        color: #fff;
+        margin: 0;
+        font-weight: bold;
+    }
     :hover {
-        transform: translateY(-2px);
-        box-shadow: rgb(136 172 243 / 25%) 0px 10px 30px,
-            rgb(0 0 0 / 3%) 0px 1px 1px, rgb(0 51 167 / 10%) 0px 10px 20px;
-        transition: all 0.8s cubic-bezier(0.075, 0.82, 0.165, 1) 0s;
+        h4 {
+            color: ${props => props.theme.brandSecondary};
+        }
     }
 `;
 
 const TokenListItem = ({ ticker, balance, tokenId }) => {
     return (
         <Wrapper>
-            <TokenIcon>
-                {currency.tokenIconsUrl !== '' ? (
-                    <Img
-                        src={`${currency.tokenIconsUrl}/32/${tokenId}.png`}
-                        width={32}
-                        height={32}
-                        unloader={
-                            <img
-                                alt={`identicon of tokenId ${tokenId} `}
-                                height="32"
-                                width="32"
-                                style={{
-                                    borderRadius: '50%',
-                                }}
-                                key={`identicon-${tokenId}`}
-                                src={makeBlockie(tokenId)}
-                            />
-                        }
-                    />
-                ) : (
-                    <img
-                        alt={`identicon of tokenId ${tokenId} `}
-                        height="32"
-                        width="32"
-                        style={{
-                            borderRadius: '50%',
-                        }}
-                        key={`identicon-${tokenId}`}
-                        src={makeBlockie(tokenId)}
-                    />
-                )}
-            </TokenIcon>
-            <BalanceAndTicker>
-                {balance} <strong>{ticker}</strong>
-            </BalanceAndTicker>
+            <TokenNameCtn>
+                <TokenIcon>
+                    {currency.tokenIconsUrl !== '' ? (
+                        <Img
+                            src={`${currency.tokenIconsUrl}/32/${tokenId}.png`}
+                            width={32}
+                            height={32}
+                            unloader={
+                                <img
+                                    alt={`identicon of tokenId ${tokenId} `}
+                                    height="32"
+                                    width="32"
+                                    style={{
+                                        borderRadius: '50%',
+                                    }}
+                                    key={`identicon-${tokenId}`}
+                                    src={makeBlockie(tokenId)}
+                                />
+                            }
+                        />
+                    ) : (
+                        <img
+                            alt={`identicon of tokenId ${tokenId} `}
+                            height="32"
+                            width="32"
+                            style={{
+                                borderRadius: '50%',
+                            }}
+                            key={`identicon-${tokenId}`}
+                            src={makeBlockie(tokenId)}
+                        />
+                    )}
+                </TokenIcon>
+                <h4>{ticker}</h4>
+            </TokenNameCtn>
+
+            <h4>{balance}</h4>
         </Wrapper>
     );
 };
