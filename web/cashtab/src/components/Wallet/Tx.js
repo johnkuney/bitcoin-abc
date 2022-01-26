@@ -123,6 +123,7 @@ const OpReturnType = styled.div`
         margin: 0;
         font-size: 14px;
         margin-bottom: 10px;
+        overflow-wrap: break-word;
     }
     a {
         color: #fff;
@@ -159,8 +160,8 @@ const CashtabMessageLabel = styled.span`
     white-space: nowrap;
 `;
 const EncryptionMessageLabel = styled.span`
-    text-align: left;
     font-weight: bold;
+    font-size: 12px;
     color: ${props => props.theme.wallet.encryption};
     white-space: nowrap;
 `;
@@ -528,15 +529,19 @@ const Tx = ({ data, fiatPrice, fiatCurrency }) => {
                                 <br />
                                 {/*unencrypted OP_RETURN Message*/}
                                 {data.opReturnMessage &&
-                                !data.isEncryptedMessage
-                                    ? data.opReturnMessage
-                                    : ''}
+                                !data.isEncryptedMessage ? (
+                                    <p>{data.opReturnMessage}</p>
+                                ) : (
+                                    ''
+                                )}
                                 {/*encrypted and wallet is authorized to view OP_RETURN Message*/}
                                 {data.opReturnMessage &&
                                 data.isEncryptedMessage &&
-                                data.decryptionSuccess
-                                    ? data.opReturnMessage
-                                    : ''}
+                                data.decryptionSuccess ? (
+                                    <p>{data.opReturnMessage}</p>
+                                ) : (
+                                    ''
+                                )}
                                 {/*encrypted but wallet is not authorized to view OP_RETURN Message*/}
                                 {data.opReturnMessage &&
                                 data.isEncryptedMessage &&
