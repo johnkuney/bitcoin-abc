@@ -519,41 +519,31 @@ const Tx = ({ data, fiatPrice, fiatCurrency }) => {
                                     <h4>External Message</h4>
                                 )}
                                 {data.isEncryptedMessage ? (
-                                    <h4>&nbsp;-&nbsp;Encrypted</h4>
-                                ) : null}
-
-                                {/*unencrypted OP_RETURN Message*/}
-                                {data.opReturnMessage &&
-                                !data.isEncryptedMessage ? (
-                                    <p>
-                                        {Buffer.from(
-                                            data.opReturnMessage,
-                                        ).toString()}
-                                    </p>
+                                    <EncryptionMessageLabel>
+                                        &nbsp;-&nbsp;Encrypted
+                                    </EncryptionMessageLabel>
                                 ) : (
                                     ''
                                 )}
+                                <br />
+                                {/*unencrypted OP_RETURN Message*/}
+                                {data.opReturnMessage &&
+                                !data.isEncryptedMessage
+                                    ? data.opReturnMessage
+                                    : ''}
                                 {/*encrypted and wallet is authorized to view OP_RETURN Message*/}
                                 {data.opReturnMessage &&
                                 data.isEncryptedMessage &&
-                                data.decryptionSuccess ? (
-                                    <p>
-                                        {Buffer.from(
-                                            data.opReturnMessage,
-                                        ).toString()}
-                                    </p>
-                                ) : (
-                                    ''
-                                )}
+                                data.decryptionSuccess
+                                    ? data.opReturnMessage
+                                    : ''}
                                 {/*encrypted but wallet is not authorized to view OP_RETURN Message*/}
                                 {data.opReturnMessage &&
                                 data.isEncryptedMessage &&
                                 !data.decryptionSuccess ? (
-                                    <p>
-                                        {Buffer.from(
-                                            data.opReturnMessage,
-                                        ).toString()}
-                                    </p>
+                                    <UnauthorizedDecryptionMessage>
+                                        {data.opReturnMessage}
+                                    </UnauthorizedDecryptionMessage>
                                 ) : (
                                     ''
                                 )}
