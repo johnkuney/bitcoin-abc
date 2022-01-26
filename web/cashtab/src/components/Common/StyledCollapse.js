@@ -70,7 +70,7 @@ export const AdvancedCollapse = styled(Collapse)`
            }
             `
             : `
-                background: ${props.theme.primary} !important;
+                background: #255173 !important;
            .ant-collapse-header {
                font-size: 18px;
                font-weight: bold;
