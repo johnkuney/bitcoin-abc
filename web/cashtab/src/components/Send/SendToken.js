@@ -34,9 +34,8 @@ import styled, { css } from 'styled-components';
 const AntdDescriptionsCss = css`
     .ant-descriptions-item-label,
     .ant-descriptions-item-content {
-        background-color: ${props =>
-            props.theme.tokenListItem.background} !important;
-        color: ${props => props.theme.tokenListItem.color};
+        background-color: ${props => props.theme.contrast} !important;
+        color: ${props => props.theme.dropdowntext};
     }
 `;
 const AntdDescriptionsWrapper = styled.div`

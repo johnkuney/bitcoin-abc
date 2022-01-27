@@ -35,7 +35,7 @@ export const WalletInfoCtn = styled.div`
 `;
 
 export const BalanceHeaderWrap = styled.div`
-    color: ${props => props.theme.wallet.text.primary};
+    color: ${props => props.theme.contrast};
     width: 100%;
     font-size: 16px;
     @media (max-width: 768px) {
@@ -44,7 +44,7 @@ export const BalanceHeaderWrap = styled.div`
 `;
 
 export const BalanceHeaderFiatWrap = styled.div`
-    color: ${props => props.theme.wallet.text.primary};
+    color: ${props => props.theme.contrast};
     width: 100%;
     font-size: 28px;
     margin-bottom: 0px;
@@ -56,7 +56,7 @@ export const BalanceHeaderFiatWrap = styled.div`
 `;
 
 export const ZeroBalanceHeader = styled.div`
-    color: ${props => props.theme.wallet.text.primary};
+    color: ${props => props.theme.contrast};
     width: 100%;
     font-size: 14px;
     margin-bottom: 5px;

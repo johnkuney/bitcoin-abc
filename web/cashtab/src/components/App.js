@@ -38,7 +38,7 @@ const GlobalStyle = createGlobalStyle`
     .ant-modal-wrap > div > div.ant-modal-content > div > div > div.ant-modal-confirm-btns > button, .ant-modal > button, .ant-modal-confirm-btns > button, .ant-modal-footer > button, #cropControlsConfirm {
         border-radius: 8px;
         background-color: ${props => props.theme.modals.buttons.background};
-        color: ${props => props.theme.wallet.text.secondary};
+        color: ${props => props.theme.darkblue};
         font-weight: bold;
     }    
     
@@ -49,7 +49,7 @@ const GlobalStyle = createGlobalStyle`
     }   
     .selectedCurrencyOption {
         text-align: left;
-        color: ${props => props.theme.wallet.text.dropdown} !important;
+        color: ${props => props.theme.black} !important;
         background-color: ${props => props.theme.contrast} !important;
     }
     .cashLoadingIcon {
@@ -84,9 +84,9 @@ const GlobalStyle = createGlobalStyle`
 const CustomApp = styled.div`
     text-align: center;
     font-family: 'Poppins', sans-serif;
-    background-color: ${props => props.theme.app.background};
+    background-color: ${props => props.theme.backgroundColor};
     background-size: 100px 171px;
-    background-image: ${props => props.theme.app.backgroundImage};
+    background-image: ${props => props.theme.backgroundImage};
     background-attachment: fixed;
     /* animation: animatedBackground 100s linear infinite alternate;
     @keyframes animatedBackground {
@@ -103,7 +103,7 @@ const Footer = styled.div`
     z-index: 2;
     height: 80px;
     border-top: 1px solid rgba(255, 255, 255, 0.5);
-    background-color: ${props => props.theme.footer.background};
+    background-color: ${props => props.theme.footerBackground};
     position: fixed;
     bottom: 0;
     width: 500px;
@@ -153,28 +153,10 @@ export const WalletCtn = styled.div`
     width: 500px;
     min-height: 100vh;
     padding: 0 0 100px;
-    /* background: ${props => props.theme.wallet.background}; */
-    /* background: rgb(23, 28, 50);
-    background: -moz-linear-gradient(
-        59deg,
-        rgba(23, 28, 50, 1) 0%,
-        rgba(16, 75, 109, 1) 59%
-    );
-    background: -webkit-linear-gradient(
-        59deg,
-        rgba(23, 28, 50, 1) 0%,
-        rgba(16, 75, 109, 1) 59%
-    );
-    background: linear-gradient(
-        59deg,
-        rgba(23, 28, 50, 1) 0%,
-        rgba(16, 75, 109, 1) 59%
-    ); */
-    background: #152b45;
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#171c32",endColorstr="#104b6d",GradientType=1);
-    -webkit-box-shadow: 0px 0px 24px 1px ${props => props.theme.wallet.shadow};
-    -moz-box-shadow: 0px 0px 24px 1px ${props => props.theme.wallet.shadow};
-    box-shadow: 0px 0px 24px 1px ${props => props.theme.wallet.shadow};
+    background: ${props => props.theme.walletBackground};
+    -webkit-box-shadow: 0px 0px 24px 1px ${props => props.theme.shadow};
+    -moz-box-shadow: 0px 0px 24px 1px ${props => props.theme.shadow};
+    box-shadow: 0px 0px 24px 1px ${props => props.theme.shadow};
     @media (max-width: 768px) {
         width: 100%;
         -webkit-box-shadow: none;

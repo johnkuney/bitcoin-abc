@@ -83,7 +83,7 @@ const AddressHighlightTrim = styled.span`
 
 const CustomInput = styled.div`
     font-size: 14px;
-    color: ${props => props.theme.wallet.text.lightWhite};
+    color: ${props => props.theme.lightWhite};
     text-align: center;
     cursor: pointer;
     margin-bottom: 10px;
@@ -106,7 +106,7 @@ const CustomInput = styled.div`
         -ms-user-select: none;
         user-select: none;
         cursor: pointer;
-        color: ${props => props.theme.wallet.text.primary};
+        color: ${props => props.theme.contrast};
         padding: 10px 0;
         background: transparent;
         margin-bottom: 15px;
@@ -117,7 +117,7 @@ const CustomInput = styled.div`
     }
     input::selection {
         background: transparent;
-        color: ${props => props.theme.wallet.text.primary};
+        color: ${props => props.theme.contrast};
     }
     @media (max-width: 768px) {
         font-size: 10px;

@@ -22,14 +22,13 @@ export const SwitchBtnCtn = styled.div`
     align-content: space-between;
     margin-bottom: 15px;
     .nonactiveBtn {
-        color: #152b45;
-        background: ${props =>
-            props.theme.wallet.switch.inactive.background} !important;
+        color: ${props => props.theme.walletBackground};
+        background: ${props => props.theme.contrast} !important;
+        opacity: 0.9;
         box-shadow: none !important;
     }
     .slpActive {
-        background: ${props =>
-            props.theme.wallet.switch.activeToken.background} !important;
+        background: ${props => props.theme.ecashpurple} !important;
     }
 `;
 

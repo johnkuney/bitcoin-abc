@@ -78,7 +78,7 @@ const SWName = styled.div`
 
     h3 {
         font-size: 16px;
-        color: ${props => props.theme.wallet.text.secondary};
+        color: ${props => props.theme.darkblue};
         margin: 0;
         text-align: center;
         white-space: nowrap;
@@ -112,7 +112,7 @@ const SWBalance = styled.div`
     }
     div {
         font-size: 13px;
-        color: ${props => props.theme.wallet.text.secondary};
+        color: ${props => props.theme.darkblue};
         margin: 0;
         text-align: center;
         white-space: nowrap;
@@ -151,8 +151,8 @@ const SWButtonCtn = styled.div`
     }
 
     svg {
-        stroke: ${props => props.theme.wallet.text.secondary};
-        fill: ${props => props.theme.wallet.text.secondary};
+        stroke: ${props => props.theme.darkblue};
+        fill: ${props => props.theme.darkblue};
         width: 25px;
         height: 25px;
         margin-right: 20px;
@@ -178,7 +178,7 @@ const AWRow = styled.div`
     h3 {
         font-size: 16px;
         display: inline-block;
-        color: ${props => props.theme.wallet.text.secondary};
+        color: ${props => props.theme.darkblue};
         margin: 0;
         text-align: left;
         font-weight: bold;
@@ -201,21 +201,21 @@ const AWRow = styled.div`
 
 const StyledConfigure = styled.div`
     h2 {
-        color: ${props => props.theme.wallet.text.primary};
+        color: ${props => props.theme.contrast};
         font-size: 25px;
     }
     svg {
         fill: ${props => props.theme.ecashblue};
     }
     p {
-        color: ${props => props.theme.wallet.text.secondary};
+        color: ${props => props.theme.darkblue};
     }
 `;
 
 const StyledSpacer = styled.div`
     height: 1px;
     width: 100%;
-    background-color: ${props => props.theme.wallet.borders.color};
+    background-color: ${props => props.theme.lightWhite};
     margin: 60px 0 50px;
 `;
 

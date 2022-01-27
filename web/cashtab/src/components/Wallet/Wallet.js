@@ -31,7 +31,7 @@ export const TabLabel = styled.button`
     :active {
         outline: none;
     }
-    color: ${props => props.theme.wallet.text.lightWhite};
+    color: ${props => props.theme.lightWhite};
     border: none;
     background: none;
     font-size: 18px;
@@ -67,59 +67,18 @@ export const TabPane = styled.div`
   `}
 `;
 
-export const SwitchBtnCtn = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    align-content: space-between;
-    margin-bottom: 15px;
-    .nonactiveBtn {
-        color: ${props => props.theme.wallet.text.secondary};
-        background: ${props =>
-            props.theme.wallet.switch.inactive.background} !important;
-        box-shadow: none !important;
-    }
-    .slpActive {
-        background: ${props =>
-            props.theme.wallet.switch.activeToken.background} !important;
-        box-shadow: ${props =>
-            props.theme.wallet.switch.activeToken.shadow} !important;
-    }
-`;
-
-export const SwitchBtn = styled.div`
-    font-weight: bold;
-    display: inline-block;
-    cursor: pointer;
-    color: ${props => props.theme.contrast};
-    font-size: 14px;
-    padding: 6px 0;
-    width: 100px;
-    margin: 0 1px;
-    text-decoration: none;
-    background: ${props => props.theme.ecashblue};
-    box-shadow: ${props => props.theme.wallet.switch.activeCash.shadow};
-    user-select: none;
-    :first-child {
-        border-radius: 100px 0 0 100px;
-    }
-    :nth-child(2) {
-        border-radius: 0 100px 100px 0;
-    }
-`;
-
 export const Links = styled(Link)`
-    color: ${props => props.theme.wallet.text.secondary};
+    color: ${props => props.theme.darkblue};
     width: 100%;
     font-size: 16px;
     margin: 10px 0 20px 0;
-    border: 1px solid ${props => props.theme.wallet.text.secondary};
+    border: 1px solid ${props => props.theme.darkblue};
     padding: 14px 0;
     display: inline-block;
     border-radius: 3px;
     transition: all 200ms ease-in-out;
     svg {
-        fill: ${props => props.theme.wallet.text.secondary};
+        fill: ${props => props.theme.darkblue};
     }
     :hover {
         color: ${props => props.theme.ecashblue};
@@ -135,17 +94,17 @@ export const Links = styled(Link)`
 `;
 
 export const ExternalLink = styled.a`
-    color: ${props => props.theme.wallet.text.secondary};
+    color: ${props => props.theme.darkblue};
     width: 100%;
     font-size: 16px;
     margin: 0 0 20px 0;
-    border: 1px solid ${props => props.theme.wallet.text.secondary};
+    border: 1px solid ${props => props.theme.darkblue};
     padding: 14px 0;
     display: inline-block;
     border-radius: 3px;
     transition: all 200ms ease-in-out;
     svg {
-        fill: ${props => props.theme.wallet.text.secondary};
+        fill: ${props => props.theme.darkblue};
         transition: all 200ms ease-in-out;
     }
     :hover {

@@ -43,11 +43,11 @@ export const AntdFormCss = css`
     }
     .ant-input-affix-wrapper {
         background-color: ${props => props.theme.forms.selectionBackground};
-        border: 1px solid ${props => props.theme.wallet.borders.color} !important;
+        border: 1px solid ${props => props.theme.inputBorder} !important;
     }
     .ant-select-selector {
         height: 55px !important;
-        border: 1px solid ${props => props.theme.wallet.borders.color} !important;
+        border: 1px solid ${props => props.theme.inputBorder} !important;
         background-color: ${props =>
             props.theme.forms.selectionBackground}!important;
     }
