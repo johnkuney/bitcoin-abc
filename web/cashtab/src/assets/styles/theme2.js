@@ -11,32 +11,22 @@ export const theme = {
     genesisGreen: '#00e781',
     lightWhite: 'rgba(255,255,255,0.4)',
     dropdowntext: '#000',
-    inputBorder: '#e2e2e2',
     shadow: 'rgba(0, 0, 0, 0.2)',
     forms: {
         error: '#FF21D0',
-        border: '#e7edf3',
-        text: '#001137',
+        border: '#e2e2e2',
+        text: '#152b45',
         addonBackground: '#f4f4f4',
-        addonForeground: '#3e3f42',
+        addonForeground: '#152b45',
         selectionBackground: '#fff',
-        darkLabel: '#0074c2',
-        lightLabel: '#c0c0c0',
     },
-    icons: { outlined: '#273498' },
-    modals: {
-        buttons: { background: '#fff' },
-    },
+    icons: { outlined: '#00ABE7' },
     settings: {
         delete: '#CD0BC3',
         background: '#eee',
     },
     qr: {
-        copyBorderCash: '#00ABE7',
-        copyBorderToken: '#FF21D0',
         background: '#fff',
-        token: '#231F20',
-        shadow: 'rgb(136 172 243 / 25%) 0px 10px 30px, rgb(0 0 0 / 3%) 0px 1px 1px, rgb(0 51 167 / 10%) 0px 10px 20px',
     },
     buttons: {
         primary: {

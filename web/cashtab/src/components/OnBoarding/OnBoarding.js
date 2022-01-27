@@ -78,6 +78,7 @@ const OnBoarding = () => {
         confirm({
             title: "Don't forget to back up your wallet",
             icon: <ExclamationCircleOutlined />,
+            cancelButtonProps: { style: { display: 'none' } },
             content: `Once your wallet is created you can back it up by writing down your 12-word seed. You can find your seed on the Settings page. If you are browsing in Incognito mode or if you clear your browser history, you will lose any funds that are not backed up!`,
             okText: 'Okay, make me a wallet!',
             onOk() {

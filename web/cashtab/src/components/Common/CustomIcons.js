@@ -41,10 +41,10 @@ export const ThemedDollarOutlined = styled(DollarOutlined)`
     color: ${props => props.theme.icons.outlined} !important;
 `;
 export const ThemedWalletOutlined = styled(WalletOutlined)`
-    color: ${props => props.theme.icons.outlined} !important;
+    color: ${props => props.theme.walletBackground} !important;
 `;
 export const ThemedQrcodeOutlined = styled(QrcodeOutlined)`
-    color: ${props => props.theme.icons.outlined} !important;
+    color: ${props => props.theme.walletBackground} !important;
 `;
 export const ThemedSettingOutlined = styled(SettingOutlined)`
     color: ${props => props.theme.icons.outlined} !important;

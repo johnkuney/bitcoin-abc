@@ -35,7 +35,7 @@ import PopOut from '@assets/popout.svg';
 const GlobalStyle = createGlobalStyle`    
     .ant-modal-wrap > div > div.ant-modal-content > div > div > div.ant-modal-confirm-btns > button, .ant-modal > button, .ant-modal-confirm-btns > button, .ant-modal-footer > button, #cropControlsConfirm{
         border-radius: 8px;
-        background-color: ${props => props.theme.modals.buttons.background};
+        background-color: ${props => props.theme.contrast};
         color: ${props => props.theme.darkblue};
         font-weight: bold;
     }    
@@ -43,7 +43,7 @@ const GlobalStyle = createGlobalStyle`
     .ant-modal-wrap > div > div.ant-modal-content > div > div > div.ant-modal-confirm-btns > button:hover,.ant-modal-confirm-btns > button:hover, .ant-modal-footer > button:hover, #cropControlsConfirm:hover {
         color: ${props => props.theme.ecashblue};
         transition: color 0.3s;
-        background-color: ${props => props.theme.modals.buttons.background};
+        background-color: ${props => props.theme.contrast};
     }   
     .selectedCurrencyOption {
         text-align: left;
@@ -92,7 +92,7 @@ const Footer = styled.div`
     @media (max-width: 768px) {
         width: 100%;
     }
-    border-top: 1px solid ${props => props.theme.inputBorder};
+    border-top: 1px solid ${props => props.theme.forms.border};
 `;
 
 export const NavButton = styled.button`
@@ -168,7 +168,7 @@ export const HeaderCtn = styled.div`
     padding: 20px 0 30px;
     margin-bottom: 20px;
     justify-content: space-between;
-    border-bottom: 1px solid ${props => props.theme.inputBorder};
+    border-bottom: 1px solid ${props => props.theme.forms.border};
 
     a {
         color: ${props => props.theme.darkblue};

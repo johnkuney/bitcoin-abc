@@ -34,18 +34,23 @@ import { checkForTokenById } from '@utils/tokenMethods.js';
 // Biometric security import not used in extension/src/components/App.js
 import ProtectableComponentWrapper from './Authentication/ProtectableComponentWrapper';
 
-const GlobalStyle = createGlobalStyle`    
+const GlobalStyle = createGlobalStyle`
+*{
+    user-select: none;
+}    
     .ant-modal-wrap > div > div.ant-modal-content > div > div > div.ant-modal-confirm-btns > button, .ant-modal > button, .ant-modal-confirm-btns > button, .ant-modal-footer > button, #cropControlsConfirm {
-        border-radius: 8px;
-        background-color: ${props => props.theme.modals.buttons.background};
-        color: ${props => props.theme.darkblue};
+        border-radius: 3px;
+        background-color: ${props => props.theme.contrast};
+        color: ${props => props.theme.walletBackground};
         font-weight: bold;
+        text-shadow: none !important;
     }    
     
     .ant-modal-wrap > div > div.ant-modal-content > div > div > div.ant-modal-confirm-btns > button:hover,.ant-modal-confirm-btns > button:hover, .ant-modal-footer > button:hover, #cropControlsConfirm:hover {
-        color: ${props => props.theme.ecashblue};
-        transition: color 0.3s;
-        background-color: ${props => props.theme.modals.buttons.background};
+        color: ${props => props.theme.contrast};
+        transition: all 0.3s;
+        background-color: ${props => props.theme.ecashblue};
+        border-color: ${props => props.theme.ecashblue};
     }   
     .selectedCurrencyOption {
         text-align: left;
@@ -78,7 +83,10 @@ const GlobalStyle = createGlobalStyle`
     }
     .ant-descriptions-bordered .ant-descriptions-row {
     background: ${props => props.theme.contrast};
-}
+    }
+    .ant-modal-confirm-content, .ant-modal-confirm-title {
+        color: ${props => props.theme.walletBackground} !important;
+    }
 `;
 
 const CustomApp = styled.div`
@@ -129,6 +137,7 @@ export const NavButton = styled.button`
     svg {
         fill: ${props => props.theme.contrast};
         width: 26px;
+        height: auto;
     }
     ${({ active, ...props }) =>
         active &&

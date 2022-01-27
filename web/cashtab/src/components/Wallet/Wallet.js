@@ -138,14 +138,14 @@ const WalletInfo = () => {
         <>
             <WalletInfoCtn>
                 <WalletLabel name={wallet.name}></WalletLabel>
+                <BalanceHeader
+                    balance={balances.totalBalance}
+                    ticker={currency.ticker}
+                />
                 <BalanceHeaderFiat
                     balance={balances.totalBalance}
                     settings={cashtabSettings}
                     fiatPrice={fiatPrice}
-                />
-                <BalanceHeader
-                    balance={balances.totalBalance}
-                    ticker={currency.ticker}
                 />
             </WalletInfoCtn>
             {apiError && <ApiError />}

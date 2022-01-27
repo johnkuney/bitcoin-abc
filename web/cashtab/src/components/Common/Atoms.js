@@ -34,7 +34,7 @@ export const WalletInfoCtn = styled.div`
     padding: 40px 20px;
 `;
 
-export const BalanceHeaderWrap = styled.div`
+export const BalanceHeaderFiatWrap = styled.div`
     color: ${props => props.theme.contrast};
     width: 100%;
     font-size: 16px;
@@ -43,7 +43,7 @@ export const BalanceHeaderWrap = styled.div`
     }
 `;
 
-export const BalanceHeaderFiatWrap = styled.div`
+export const BalanceHeaderWrap = styled.div`
     color: ${props => props.theme.contrast};
     width: 100%;
     font-size: 28px;

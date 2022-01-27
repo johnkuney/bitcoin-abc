@@ -61,14 +61,12 @@ import WalletLabel from '@components/Common/WalletLabel.js';
 
 const SignMessageLabel = styled.div`
     text-align: left;
-    color: ${props => props.theme.forms.darkLabel};
+    color: ${props => props.theme.forms.text};
 `;
-const RecipientModeLabel = styled.div`
-    color: ${props => props.theme.forms.lightLabel};
-`;
+
 const TextAreaLabel = styled.div`
     text-align: left;
-    color: ${props => props.theme.forms.darkLabel};
+    color: ${props => props.theme.forms.text};
     padding-left: 1px;
 `;
 
@@ -630,6 +628,10 @@ const SendBCH = ({ jestBCH, passLoadingStatus }) => {
                     </ZeroBalanceHeader>
                 ) : (
                     <>
+                        <BalanceHeader
+                            balance={balances.totalBalance}
+                            ticker={currency.ticker}
+                        />
                         {fiatPrice !== null && (
                             <BalanceHeaderFiat
                                 balance={balances.totalBalance}
@@ -637,10 +639,6 @@ const SendBCH = ({ jestBCH, passLoadingStatus }) => {
                                 fiatPrice={fiatPrice}
                             />
                         )}
-                        <BalanceHeader
-                            balance={balances.totalBalance}
-                            ticker={currency.ticker}
-                        />
                     </>
                 )}
             </WalletInfoCtn>
@@ -655,17 +653,6 @@ const SendBCH = ({ jestBCH, passLoadingStatus }) => {
                         >
                             {!isOneToManyXECSend ? (
                                 <>
-                                    {/* <Button
-                                        type="text"
-                                        block
-                                        onClick={() =>
-                                            setIsOneToManyXECSend(true)
-                                        }
-                                    >
-                                        <RecipientModeLabel>
-                                            Switch to multiple recipients
-                                        </RecipientModeLabel>
-                                    </Button> */}
                                     <FormLabel>Send to</FormLabel>
                                     <DestinationAddressSingle
                                         style={{ marginBottom: '0px' }}
