@@ -70,8 +70,20 @@ const TextAreaLabel = styled.div`
     padding-left: 1px;
 `;
 
+const AmountPreviewCtn = styled.div`
+    margin-top: -30px;
+`;
+
+const SendInputCtn = styled.div`
+    .ant-form-item-with-help {
+        margin-bottom: 32px;
+    }
+`;
+
 const LocaleFormattedValue = styled.h3`
     color: ${props => props.theme.contrast};
+    font-weight: bold;
+    margin-bottom: 0;
 `;
 // Note jestBCH is only used for unit tests; BCHJS must be mocked for jest
 const SendBCH = ({ jestBCH, passLoadingStatus }) => {
@@ -652,7 +664,7 @@ const SendBCH = ({ jestBCH, passLoadingStatus }) => {
                             }}
                         >
                             {!isOneToManyXECSend ? (
-                                <>
+                                <SendInputCtn>
                                     <FormLabel>Send to</FormLabel>
                                     <DestinationAddressSingle
                                         style={{ marginBottom: '0px' }}
@@ -728,18 +740,7 @@ const SendBCH = ({ jestBCH, passLoadingStatus }) => {
                                             disabled
                                         </AlertMsg>
                                     )}
-                                    {/* <LocaleFormattedValue>
-                                        {formatBalance(
-                                            formData.value,
-                                            userLocale,
-                                        )}{' '}
-                                        {selectedCurrency}
-                                    </LocaleFormattedValue>
-                                    <ConvertAmount>
-                                        {fiatPriceString !== '' && '='}{' '}
-                                        {fiatPriceString}
-                                    </ConvertAmount> */}
-                                </>
+                                </SendInputCtn>
                             ) : (
                                 <>
                                     <FormLabel>Send to</FormLabel>
@@ -763,10 +764,55 @@ const SendBCH = ({ jestBCH, passLoadingStatus }) => {
                                     ></DestinationAddressMulti>
                                 </>
                             )}
+                            {!isOneToManyXECSend && (
+                                <AmountPreviewCtn>
+                                    <LocaleFormattedValue>
+                                        {formatBalance(
+                                            formData.value,
+                                            userLocale,
+                                        )}{' '}
+                                        {selectedCurrency}
+                                    </LocaleFormattedValue>
+                                    <ConvertAmount>
+                                        {fiatPriceString !== '' && '='}{' '}
+                                        {fiatPriceString}
+                                    </ConvertAmount>
+                                </AmountPreviewCtn>
+                            )}
+                            <div
+                                style={{
+                                    paddingTop: '12px',
+                                }}
+                            >
+                                {!balances.totalBalance ||
+                                apiError ||
+                                sendBchAmountError ||
+                                sendBchAddressError ? (
+                                    <SecondaryButton>Send</SecondaryButton>
+                                ) : (
+                                    <>
+                                        {txInfoFromUrl ? (
+                                            <PrimaryButton
+                                                onClick={() => showModal()}
+                                            >
+                                                Send
+                                            </PrimaryButton>
+                                        ) : (
+                                            <PrimaryButton
+                                                onClick={() => {
+                                                    send();
+                                                }}
+                                            >
+                                                Send
+                                            </PrimaryButton>
+                                        )}
+                                    </>
+                                )}
+                            </div>
                             <div>
                                 <AdvancedCollapse
                                     style={{
-                                        marginBottom: '24px',
+                                        marginBottom: '12px',
                                     }}
                                     defaultActiveKey={
                                         location &&
@@ -884,7 +930,7 @@ const SendBCH = ({ jestBCH, passLoadingStatus }) => {
                                     </Panel>
                                 </AdvancedCollapse>
                             </div>
-                            {!isOneToManyXECSend && (
+                            {/* {!isOneToManyXECSend && (
                                 <>
                                     <LocaleFormattedValue>
                                         {formatBalance(
@@ -928,7 +974,7 @@ const SendBCH = ({ jestBCH, passLoadingStatus }) => {
                                         )}
                                     </>
                                 )}
-                            </div>
+                            </div> */}
                             {queryStringText && (
                                 <Alert
                                     message={`You are sending a transaction to an address including query parameters "${queryStringText}." Only the "amount" parameter, in units of ${currency.ticker} satoshis, is currently supported.`}

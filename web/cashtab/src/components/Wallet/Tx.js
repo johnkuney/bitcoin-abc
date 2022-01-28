@@ -11,6 +11,7 @@ import makeBlockie from 'ethereum-blockies-base64';
 import { Img } from 'react-image';
 import { fromLegacyDecimals } from '@utils/cashMethods';
 import { formatBalance, formatDate } from '@utils/formatting';
+import { theme } from '../../assets/styles/theme2';
 
 const TxIcon = styled.div`
     svg {
@@ -76,7 +77,7 @@ const LeftTextCtn = styled.div`
     }
     h4 {
         font-size: 12px;
-        color: rgba(255, 255, 255, 0.4);
+        color: ${props => props.theme.lightWhite};
         margin: 0;
     }
 `;
@@ -101,7 +102,7 @@ const RightTextCtn = styled.div`
     }
     h4 {
         font-size: 12px;
-        color: rgba(255, 255, 255, 0.4);
+        color: ${props => props.theme.lightWhite};
         margin: 0;
     }
 `;
@@ -110,10 +111,10 @@ const OpReturnType = styled.div`
     width: 100%;
     padding: 10px;
     border-radius: 5px;
-    background: rgba(255, 255, 255, 0.1);
+    background: ${props => props.theme.sentMessage};
     margin-top: 15px;
     h4 {
-        color: rgba(255, 255, 255, 0.4);
+        color: ${props => props.theme.lightWhite};
         margin: 0;
         font-size: 12px;
         display: inline-block;
@@ -202,7 +203,7 @@ const TxInfo = styled.div`
     }
     h4 {
         font-size: 12px;
-        color: rgba(255, 255, 255, 0.4);
+        color: ${props => props.theme.lightWhite};
         margin: 0;
     }
 
@@ -264,15 +265,6 @@ const TxWrapper = styled.div`
     color: ${props => props.theme.contrast};
     padding: 10px 0;
     flex-wrap: wrap;
-
-    :hover {
-        /* background: rgba(0, 0, 0, 0.1);
-        transition: all 0.8s cubic-bezier(0.075, 0.82, 0.165, 1) 0s; */
-    }
-    @media screen and (max-width: 500px) {
-        /* grid-template-columns: 24px 30% 50%;
-        padding: 12px 12px; */
-    }
 `;
 
 const Tx = ({ data, fiatPrice, fiatCurrency }) => {
@@ -508,7 +500,7 @@ const Tx = ({ data, fiatPrice, fiatCurrency }) => {
                                 style={
                                     !data.outgoingTx
                                         ? {
-                                              background: 'rgba(0,171,231,0.2)',
+                                              background: theme.receivedMessage,
                                               textAlign: 'left',
                                           }
                                         : null

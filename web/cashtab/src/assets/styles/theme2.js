@@ -6,9 +6,12 @@ export const theme = {
     backgroundImage: `url("/cashtab_bg.png")`,
     backgroundColor: '#d5d5d7',
     walletBackground: '#152b45',
+    walletInfoContainer: 'rgba(0, 171, 231, 0.3)',
     footerBackground: '#152b45',
     encryptionRed: '#DC143C',
     genesisGreen: '#00e781',
+    receivedMessage: 'rgba(0,171,231,0.2)',
+    sentMessage: 'rgba(255, 255, 255, 0.1)',
     lightWhite: 'rgba(255,255,255,0.4)',
     dropdowntext: '#000',
     shadow: 'rgba(0, 0, 0, 0.2)',
@@ -48,12 +51,5 @@ export const theme = {
         expandedBackground: '#fff',
         border: '#eaedf3',
         color: '#3e3f42',
-    },
-    generalSettings: {
-        item: {
-            icon: '#949494',
-            title: '#949494',
-        },
-        background: '#fff',
     },
 };

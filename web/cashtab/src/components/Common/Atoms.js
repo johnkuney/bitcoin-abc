@@ -29,7 +29,7 @@ export const FormLabel = styled.label`
 `;
 
 export const WalletInfoCtn = styled.div`
-    background: rgba(0, 171, 231, 0.3);
+    background: ${props => props.theme.walletInfoContainer};
     width: 100%;
     padding: 40px 20px;
 `;

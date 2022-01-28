@@ -223,20 +223,23 @@ const GeneralSettingsItem = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    .ant-switch svg {
+        fill: #717171;
+    }
     .title {
-        color: ${props => props.theme.generalSettings.item.title};
+        color: ${props => props.theme.contrast};
     }
     .anticon {
-        color: ${props => props.theme.generalSettings.item.icon};
+        color: ${props => props.theme.contrast};
     }
     .ant-switch {
-        background-color: ${props => props.theme.generalSettings.item.icon};
-        .anticon {
-            color: ${props => props.theme.generalSettings.background};
-        }
+        background-color: #bdbdbd;
     }
     .ant-switch-checked {
         background-color: ${props => props.theme.ecashblue};
+        svg {
+            fill: ${props => props.theme.contrast};
+        }
     }
 `;
 
