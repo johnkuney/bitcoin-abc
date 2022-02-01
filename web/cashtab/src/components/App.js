@@ -4,7 +4,7 @@ import { Modal, Spin } from 'antd';
 import { CashLoadingIcon } from '@components/Common/CustomIcons';
 import '../index.css';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
-import { theme, theme2 } from '@assets/styles/theme2';
+import { theme, theme2 } from '@assets/styles/theme-new';
 import { ReactComponent as HomeIcon } from '@assets/home.svg';
 import { ReactComponent as SendIcon } from '@assets/send.svg';
 import { ReactComponent as ReceiveIcon } from '@assets/receive.svg';
