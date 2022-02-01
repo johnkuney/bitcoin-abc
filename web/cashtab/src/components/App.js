@@ -4,7 +4,7 @@ import { Modal, Spin } from 'antd';
 import { CashLoadingIcon } from '@components/Common/CustomIcons';
 import '../index.css';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
-import { theme } from '@assets/styles/theme2';
+import { theme, theme2 } from '@assets/styles/theme2';
 import { ReactComponent as HomeIcon } from '@assets/home.svg';
 import { ReactComponent as SendIcon } from '@assets/send.svg';
 import { ReactComponent as ReceiveIcon } from '@assets/receive.svg';
@@ -142,9 +142,9 @@ export const NavButton = styled.button`
     ${({ active, ...props }) =>
         active &&
         `    
-        color: ${props.theme.ecashblue};
+        color: ${props.theme.navActive};
         svg {
-            fill: ${props.theme.ecashblue};
+            fill: ${props.theme.navActive};
         }
   `}
 `;
@@ -236,8 +236,15 @@ const App = () => {
           )
         : false;
 
+    const hasLightsOutTheme = validWallet
+        ? checkForTokenById(
+              wallet.state.tokens,
+              'a9c741fc5a48468b07da7d710a133003b0d31a04a466b89417f34177430870ec',
+          )
+        : false;
+
     return (
-        <ThemeProvider theme={theme}>
+        <ThemeProvider theme={!hasLightsOutTheme ? theme : theme2}>
             <GlobalStyle />
             <Spin
                 spinning={

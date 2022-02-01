@@ -24,7 +24,7 @@ export const SwitchBtnCtn = styled.div`
     .nonactiveBtn {
         color: ${props => props.theme.walletBackground};
         background: ${props => props.theme.contrast} !important;
-        opacity: 0.9;
+        opacity: 0.7;
         box-shadow: none !important;
     }
     .slpActive {
@@ -36,7 +36,7 @@ export const SwitchBtn = styled.div`
     font-weight: bold;
     display: inline-block;
     cursor: pointer;
-    color: ${props => props.theme.contrast};
+    color: ${props => props.theme.switchButtonActiveText};
     font-size: 14px;
     padding: 6px 0;
     width: 100px;

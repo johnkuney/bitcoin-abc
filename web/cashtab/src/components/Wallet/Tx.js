@@ -11,7 +11,6 @@ import makeBlockie from 'ethereum-blockies-base64';
 import { Img } from 'react-image';
 import { fromLegacyDecimals } from '@utils/cashMethods';
 import { formatBalance, formatDate } from '@utils/formatting';
-import { theme } from '../../assets/styles/theme2';
 
 const TxIcon = styled.div`
     svg {
@@ -141,6 +140,12 @@ const OpReturnType = styled.div`
         color: ${props => props.theme.contrast};
         background: ${props => props.theme.ecashblue};
     }
+    ${({ received, ...props }) =>
+        received &&
+        `
+        text-align: left;    
+        background: ${props.theme.receivedMessage};
+  `}
 `;
 const SentLabel = styled.span`
     font-weight: bold;
@@ -496,16 +501,7 @@ const Tx = ({ data, fiatPrice, fiatCurrency }) => {
                     )}
                     {data.opReturnMessage && (
                         <>
-                            <OpReturnType
-                                style={
-                                    !data.outgoingTx
-                                        ? {
-                                              background: theme.receivedMessage,
-                                              textAlign: 'left',
-                                          }
-                                        : null
-                                }
-                            >
+                            <OpReturnType received={!data.outgoingTx}>
                                 {data.isCashtabMessage ? (
                                     <h4>Cashtab Message</h4>
                                 ) : (
