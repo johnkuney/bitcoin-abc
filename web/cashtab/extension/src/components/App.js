@@ -35,28 +35,28 @@ import PopOut from '@assets/popout.svg';
 const GlobalStyle = createGlobalStyle`    
     .ant-modal-wrap > div > div.ant-modal-content > div > div > div.ant-modal-confirm-btns > button, .ant-modal > button, .ant-modal-confirm-btns > button, .ant-modal-footer > button, #cropControlsConfirm{
         border-radius: 8px;
-        background-color: ${props => props.theme.modals.buttons.background};
-        color: ${props => props.theme.wallet.text.secondary};
+        background-color: ${props => props.theme.contrast};
+        color: ${props => props.theme.darkblue};
         font-weight: bold;
     }    
     
     .ant-modal-wrap > div > div.ant-modal-content > div > div > div.ant-modal-confirm-btns > button:hover,.ant-modal-confirm-btns > button:hover, .ant-modal-footer > button:hover, #cropControlsConfirm:hover {
-        color: ${props => props.theme.primary};
+        color: ${props => props.theme.ecashblue};
         transition: color 0.3s;
-        background-color: ${props => props.theme.modals.buttons.background};
+        background-color: ${props => props.theme.contrast};
     }   
     .selectedCurrencyOption {
         text-align: left;
-        color: ${props => props.theme.wallet.text.secondary} !important;
+        color: ${props => props.theme.darkblue} !important;
         background-color: ${props => props.theme.contrast} !important;
     }
     .cashLoadingIcon {
-        color: ${props => props.theme.primary} !important;
+        color: ${props => props.theme.ecashblue} !important;
         font-size: 48px !important;
     }
     .selectedCurrencyOption:hover {
         color: ${props => props.theme.contrast} !important;
-        background-color: ${props => props.theme.primary} !important;
+        background-color: ${props => props.theme.ecashblue} !important;
     }
     #addrSwitch, #cropSwitch {
         .ant-switch-checked {
@@ -72,19 +72,19 @@ const GlobalStyle = createGlobalStyle`
         background-color: ${props => props.theme.forms.border} !important;
     }
     .ant-slider-track {
-        background-color: ${props => props.theme.primary} !important;
+        background-color: ${props => props.theme.ecashblue} !important;
     }
 `;
 
 const CustomApp = styled.div`
     text-align: center;
     font-family: 'Gilroy', sans-serif;
-    background-color: ${props => props.theme.app.background};
+    background-color: ${props => props.theme.backgroundColor};
 `;
 
 const Footer = styled.div`
     z-index: 2;
-    background-color: ${props => props.theme.footer.background};
+    background-color: ${props => props.theme.footerBackground};
     border-radius: 20px;
     position: fixed;
     bottom: 0;
@@ -92,7 +92,7 @@ const Footer = styled.div`
     @media (max-width: 768px) {
         width: 100%;
     }
-    border-top: 1px solid ${props => props.theme.wallet.borders.color};
+    border-top: 1px solid ${props => props.theme.forms.border};
 `;
 
 export const NavButton = styled.button`
@@ -112,22 +112,22 @@ export const NavButton = styled.button`
     @media (max-width: 350px) {
         margin: 0 8px;
     }
-    background-color: ${props => props.theme.footer.background};
+    background-color: ${props => props.theme.walletBackground};
     border: none;
     font-size: 12px;
     font-weight: bold;
     .anticon {
         display: block;
-        color: ${props => props.theme.footer.navIconInactive};
+        color: ${props => props.theme.contrast};
         font-size: 24px;
         margin-bottom: 6px;
     }
     ${({ active, ...props }) =>
         active &&
         `    
-        color: ${props.theme.primary};
+        color: ${props.theme.ecashblue};
         .anticon {
-            color: ${props.theme.primary};
+            color: ${props.theme.ecashblue};
         }
   `}
 `;
@@ -138,20 +138,20 @@ export const WalletBody = styled.div`
     justify-content: center;
     width: 100%;
     min-height: 100vh;
-    background-image: ${props => props.theme.app.sidebars};
+    background-image: ${props => props.theme.backgroundImage};
     background-attachment: fixed;
 `;
 
 export const WalletCtn = styled.div`
     position: relative;
     width: 500px;
-    background-color: ${props => props.theme.footerBackground};
+    background-color: ${props => props.theme.walletBackground};
     min-height: 100vh;
     padding: 10px 30px 120px 30px;
     background: ${props => props.theme.wallet.background};
-    -webkit-box-shadow: 0px 0px 24px 1px ${props => props.theme.wallet.shadow};
-    -moz-box-shadow: 0px 0px 24px 1px ${props => props.theme.wallet.shadow};
-    box-shadow: 0px 0px 24px 1px ${props => props.theme.wallet.shadow};
+    -webkit-box-shadow: 0px 0px 24px 1px ${props => props.theme.shadow};
+    -moz-box-shadow: 0px 0px 24px 1px ${props => props.theme.shadow};
+    box-shadow: 0px 0px 24px 1px ${props => props.theme.shadow};
     @media (max-width: 768px) {
         width: 100%;
         -webkit-box-shadow: none;
@@ -168,13 +168,13 @@ export const HeaderCtn = styled.div`
     padding: 20px 0 30px;
     margin-bottom: 20px;
     justify-content: space-between;
-    border-bottom: 1px solid ${props => props.theme.wallet.borders.color};
+    border-bottom: 1px solid ${props => props.theme.forms.border};
 
     a {
-        color: ${props => props.theme.wallet.text.secondary};
+        color: ${props => props.theme.darkblue};
 
         :hover {
-            color: ${props => props.theme.primary};
+            color: ${props => props.theme.ecashblue};
         }
     }
 

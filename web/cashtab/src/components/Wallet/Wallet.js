@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { WalletContext } from '@utils/context';
 import OnBoarding from '@components/OnBoarding/OnBoarding';
-import { QRCode } from '@components/Common/QRCode';
 import { currency } from '@components/Common/Ticker.js';
 import { Link } from 'react-router-dom';
 import TokenList from './TokenList';
@@ -10,25 +9,36 @@ import TxHistory from './TxHistory';
 import ApiError from '@components/Common/ApiError';
 import BalanceHeader from '@components/Common/BalanceHeader';
 import BalanceHeaderFiat from '@components/Common/BalanceHeaderFiat';
-import { LoadingCtn, ZeroBalanceHeader } from '@components/Common/Atoms';
+import {
+    LoadingCtn,
+    ZeroBalanceHeader,
+    WalletInfoCtn,
+    SidePaddingCtn,
+} from '@components/Common/Atoms';
 import { getWalletState } from '@utils/cashMethods';
+import WalletLabel from '@components/Common/WalletLabel.js';
 
 export const Tabs = styled.div`
     margin: auto;
-    margin-bottom: 12px;
     display: inline-block;
     text-align: center;
+    width: 100%;
+    margin: 20px 0;
 `;
+
 export const TabLabel = styled.button`
     :focus,
     :active {
         outline: none;
     }
-
+    color: ${props => props.theme.lightWhite};
     border: none;
     background: none;
-    font-size: 20px;
+    font-size: 18px;
     cursor: pointer;
+    /* border-bottom: 2px solid red; */
+    margin: 0 20px;
+    padding: 0;
 
     @media (max-width: 400px) {
         font-size: 16px;
@@ -37,28 +47,19 @@ export const TabLabel = styled.button`
     ${({ active, ...props }) =>
         active &&
         `    
-        color: ${props.theme.primary};       
+        color: ${props.theme.contrast};
+        border-bottom: 2px solid ${props.theme.ecashblue}   
+       
   `}
-`;
-export const TabLine = styled.div`
-    margin: auto;
-    transition: margin-left 0.5s ease-in-out, width 0.5s 0.1s;
-    height: 4px;
-    border-radius: 5px;
-    background-color: ${props => props.theme.primary};
-    pointer-events: none;
-
-    margin-left: 69.5%;
-    width: 29%;
-
-    ${({ left, ...props }) =>
-        left &&
+    ${({ token, ...props }) =>
+        token &&
         `
-        margin-left: 3%
-        width: 63%;
+        border-color:${props.theme.ecashpurple} 
   `}
 `;
+
 export const TabPane = styled.div`
+    color: ${props => props.theme.contrast};
     ${({ active }) =>
         !active &&
         `    
@@ -66,65 +67,24 @@ export const TabPane = styled.div`
   `}
 `;
 
-export const SwitchBtnCtn = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    align-content: space-between;
-    margin-bottom: 15px;
-    .nonactiveBtn {
-        color: ${props => props.theme.wallet.text.secondary};
-        background: ${props =>
-            props.theme.wallet.switch.inactive.background} !important;
-        box-shadow: none !important;
-    }
-    .slpActive {
-        background: ${props =>
-            props.theme.wallet.switch.activeToken.background} !important;
-        box-shadow: ${props =>
-            props.theme.wallet.switch.activeToken.shadow} !important;
-    }
-`;
-
-export const SwitchBtn = styled.div`
-    font-weight: bold;
-    display: inline-block;
-    cursor: pointer;
-    color: ${props => props.theme.contrast};
-    font-size: 14px;
-    padding: 6px 0;
-    width: 100px;
-    margin: 0 1px;
-    text-decoration: none;
-    background: ${props => props.theme.primary};
-    box-shadow: ${props => props.theme.wallet.switch.activeCash.shadow};
-    user-select: none;
-    :first-child {
-        border-radius: 100px 0 0 100px;
-    }
-    :nth-child(2) {
-        border-radius: 0 100px 100px 0;
-    }
-`;
-
 export const Links = styled(Link)`
-    color: ${props => props.theme.wallet.text.secondary};
+    color: ${props => props.theme.darkblue};
     width: 100%;
     font-size: 16px;
     margin: 10px 0 20px 0;
-    border: 1px solid ${props => props.theme.wallet.text.secondary};
+    border: 1px solid ${props => props.theme.darkblue};
     padding: 14px 0;
     display: inline-block;
     border-radius: 3px;
     transition: all 200ms ease-in-out;
     svg {
-        fill: ${props => props.theme.wallet.text.secondary};
+        fill: ${props => props.theme.darkblue};
     }
     :hover {
-        color: ${props => props.theme.primary};
-        border-color: ${props => props.theme.primary};
+        color: ${props => props.theme.ecashblue};
+        border-color: ${props => props.theme.ecashblue};
         svg {
-            fill: ${props => props.theme.primary};
+            fill: ${props => props.theme.ecashblue};
         }
     }
     @media (max-width: 768px) {
@@ -134,24 +94,24 @@ export const Links = styled(Link)`
 `;
 
 export const ExternalLink = styled.a`
-    color: ${props => props.theme.wallet.text.secondary};
+    color: ${props => props.theme.darkblue};
     width: 100%;
     font-size: 16px;
     margin: 0 0 20px 0;
-    border: 1px solid ${props => props.theme.wallet.text.secondary};
+    border: 1px solid ${props => props.theme.darkblue};
     padding: 14px 0;
     display: inline-block;
     border-radius: 3px;
     transition: all 200ms ease-in-out;
     svg {
-        fill: ${props => props.theme.wallet.text.secondary};
+        fill: ${props => props.theme.darkblue};
         transition: all 200ms ease-in-out;
     }
     :hover {
-        color: ${props => props.theme.primary};
-        border-color: ${props => props.theme.primary};
+        color: ${props => props.theme.ecashblue};
+        border-color: ${props => props.theme.ecashblue};
         svg {
-            fill: ${props => props.theme.primary};
+            fill: ${props => props.theme.ecashblue};
         }
     }
     @media (max-width: 768px) {
@@ -170,140 +130,83 @@ const WalletInfo = () => {
     const { wallet, fiatPrice, apiError, cashtabSettings } = ContextValue;
     const walletState = getWalletState(wallet);
     const { balances, parsedTxHistory, tokens } = walletState;
-
-    const [isCashAddress, setIsCashAddress] = React.useState(true);
     const [activeTab, setActiveTab] = React.useState('txHistory');
 
     const hasHistory = parsedTxHistory && parsedTxHistory.length > 0;
 
-    const handleChangeAddress = () => {
-        setIsCashAddress(!isCashAddress);
-    };
-
     return (
         <>
-            {!balances.totalBalance && !apiError && !hasHistory ? (
-                <>
-                    <ZeroBalanceHeader>
-                        <span role="img" aria-label="party emoji">
-                            🎉
-                        </span>
-                        Congratulations on your new wallet!{' '}
-                        <span role="img" aria-label="party emoji">
-                            🎉
-                        </span>
-                        <br /> Start using the wallet immediately to receive{' '}
-                        {currency.ticker} payments, or load it up with{' '}
-                        {currency.ticker} to send to others
-                    </ZeroBalanceHeader>
-                    <BalanceHeader balance={0} ticker={currency.ticker} />
-                </>
-            ) : (
-                <>
-                    <BalanceHeader
-                        balance={balances.totalBalance}
-                        ticker={currency.ticker}
-                    />
-                    {fiatPrice !== null && !isNaN(balances.totalBalance) && (
-                        <BalanceHeaderFiat
-                            balance={balances.totalBalance}
-                            settings={cashtabSettings}
-                            fiatPrice={fiatPrice}
-                        />
-                    )}
-                </>
-            )}
+            <WalletInfoCtn>
+                <WalletLabel name={wallet.name}></WalletLabel>
+                <BalanceHeader
+                    balance={balances.totalBalance}
+                    ticker={currency.ticker}
+                />
+                <BalanceHeaderFiat
+                    balance={balances.totalBalance}
+                    settings={cashtabSettings}
+                    fiatPrice={fiatPrice}
+                />
+            </WalletInfoCtn>
             {apiError && <ApiError />}
 
-            {wallet && ((wallet.Path245 && wallet.Path145) || wallet.Path1899) && (
-                <>
-                    {wallet.Path1899 ? (
+            <SidePaddingCtn>
+                <Tabs>
+                    <TabLabel
+                        active={activeTab === 'txHistory'}
+                        onClick={() => setActiveTab('txHistory')}
+                    >
+                        Transactions
+                    </TabLabel>
+                    <TabLabel
+                        active={activeTab === 'tokens'}
+                        token={activeTab === 'tokens'}
+                        onClick={() => setActiveTab('tokens')}
+                    >
+                        eTokens
+                    </TabLabel>
+                </Tabs>
+
+                <TabPane active={activeTab === 'txHistory'}>
+                    <TxHistory
+                        txs={parsedTxHistory}
+                        fiatPrice={fiatPrice}
+                        fiatCurrency={
+                            cashtabSettings && cashtabSettings.fiatCurrency
+                                ? cashtabSettings.fiatCurrency
+                                : 'usd'
+                        }
+                    />
+                    {!hasHistory && (
                         <>
-                            <QRCode
-                                id="borderedQRCode"
-                                address={
-                                    isCashAddress
-                                        ? wallet.Path1899.cashAddress
-                                        : wallet.Path1899.slpAddress
-                                }
-                                isCashAddress={isCashAddress}
-                            />
-                        </>
-                    ) : (
-                        <>
-                            <QRCode
-                                id="borderedQRCode"
-                                address={
-                                    isCashAddress
-                                        ? wallet.Path245.cashAddress
-                                        : wallet.Path245.slpAddress
-                                }
-                                isCashAddress={isCashAddress}
-                            />
+                            <span role="img" aria-label="party emoji">
+                                🎉
+                            </span>
+                            Congratulations on your new wallet!{' '}
+                            <span role="img" aria-label="party emoji">
+                                🎉
+                            </span>
+                            <br /> Start using the wallet immediately to receive{' '}
+                            {currency.ticker} payments, or load it up with{' '}
+                            {currency.ticker} to send to others
                         </>
                     )}
-                </>
-            )}
-
-            <SwitchBtnCtn>
-                <SwitchBtn
-                    onClick={() => handleChangeAddress()}
-                    className={isCashAddress ? null : 'nonactiveBtn'}
-                >
-                    {currency.ticker}
-                </SwitchBtn>
-                <SwitchBtn
-                    onClick={() => handleChangeAddress()}
-                    className={isCashAddress ? 'nonactiveBtn' : 'slpActive'}
-                >
-                    {currency.tokenTicker}
-                </SwitchBtn>
-            </SwitchBtnCtn>
-            {hasHistory && parsedTxHistory && (
-                <>
-                    <Tabs>
-                        <TabLabel
-                            active={activeTab === 'txHistory'}
-                            onClick={() => setActiveTab('txHistory')}
-                        >
-                            Transaction History
-                        </TabLabel>
-                        <TabLabel
-                            active={activeTab === 'tokens'}
-                            onClick={() => setActiveTab('tokens')}
-                        >
-                            eTokens
-                        </TabLabel>
-                        <TabLine left={activeTab === 'txHistory'} />
-                    </Tabs>
-
-                    <TabPane active={activeTab === 'txHistory'}>
-                        <TxHistory
-                            txs={parsedTxHistory}
-                            fiatPrice={fiatPrice}
-                            fiatCurrency={
-                                cashtabSettings && cashtabSettings.fiatCurrency
-                                    ? cashtabSettings.fiatCurrency
-                                    : 'usd'
-                            }
+                </TabPane>
+                <TabPane active={activeTab === 'tokens'}>
+                    {tokens && tokens.length > 0 ? (
+                        <TokenList
+                            wallet={wallet}
+                            tokens={tokens}
+                            jestBCH={false}
                         />
-                    </TabPane>
-                    <TabPane active={activeTab === 'tokens'}>
-                        {tokens && tokens.length > 0 ? (
-                            <TokenList
-                                wallet={wallet}
-                                tokens={tokens}
-                                jestBCH={false}
-                            />
-                        ) : (
-                            <p>
-                                Tokens sent to your {currency.tokenTicker}{' '}
-                                address will appear here
-                            </p>
-                        )}
-                    </TabPane>
-                </>
-            )}
+                    ) : (
+                        <p>
+                            Tokens sent to your {currency.tokenTicker} address
+                            will appear here
+                        </p>
+                    )}
+                </TabPane>
+            </SidePaddingCtn>
         </>
     );
 };

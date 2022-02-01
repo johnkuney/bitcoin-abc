@@ -11,6 +11,7 @@ import {
     DestinationAddressSingle,
 } from '@components/Common/EnhancedInputs';
 import useBCH from '@hooks/useBCH';
+import { SidePaddingCtn } from '@components/Common/Atoms';
 import BalanceHeader from '@components/Common/BalanceHeader';
 import { Redirect } from 'react-router-dom';
 import useWindowDimensions from '@hooks/useWindowDimensions';
@@ -33,9 +34,8 @@ import styled, { css } from 'styled-components';
 const AntdDescriptionsCss = css`
     .ant-descriptions-item-label,
     .ant-descriptions-item-content {
-        background-color: ${props =>
-            props.theme.tokenListItem.background} !important;
-        color: ${props => props.theme.tokenListItem.color};
+        background-color: ${props => props.theme.contrast} !important;
+        color: ${props => props.theme.dropdowntext};
     }
 `;
 const AntdDescriptionsWrapper = styled.div`
@@ -248,12 +248,12 @@ const SendToken = ({ tokenId, jestBCH, passLoadingStatus }) => {
         <>
             {!token && <Redirect to="/" />}
             {token && (
-                <>
+                <SidePaddingCtn>
                     <BalanceHeader
                         balance={token.balance}
                         ticker={token.info.tokenTicker}
                     />
-                    <TokenIconAlert />
+                    {/* <TokenIconAlert /> */}
                     <Row type="flex">
                         <Col span={24}>
                             <Form
@@ -467,7 +467,7 @@ const SendToken = ({ tokenId, jestBCH, passLoadingStatus }) => {
                             )}
                         </Col>
                     </Row>
-                </>
+                </SidePaddingCtn>
             )}
         </>
     );

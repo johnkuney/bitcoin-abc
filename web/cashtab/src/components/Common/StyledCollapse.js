@@ -39,7 +39,7 @@ export const TokenCollapse = styled(Collapse)`
            }
             `
             : `
-                background: ${props.theme.primary} !important;
+                background: ${props.theme.ecashblue} !important;
            .ant-collapse-header {
                font-size: 18px;
                font-weight: bold;
@@ -72,13 +72,13 @@ export const AdvancedCollapse = styled(Collapse)`
            }
             `
             : `
-                background: ${props.theme.primary} !important;
+                background: ${props.theme.advancedCollapse.background} !important;
            .ant-collapse-header {
                font-size: 18px;
                font-weight: bold;
-               color: ${props.theme.contrast} !important;
+               color: ${props.theme.advancedCollapse.color} !important;
                svg {
-                   color: ${props.theme.contrast} !important;
+                   color: ${props.theme.advancedCollapse.icon} !important;
                }
            }
            .ant-collapse-arrow {

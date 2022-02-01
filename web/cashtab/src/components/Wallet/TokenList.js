@@ -1,8 +1,23 @@
 import React from 'react';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import TokenListItem from './TokenListItem';
 import { Link } from 'react-router-dom';
 import { formatBalance } from '@utils/formatting';
+
+const CreateToken = styled(Link)`
+    color: ${props => props.theme.contrast};
+    border: 1px solid #fff;
+    padding: 4px 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+    display: inline-block;
+    :hover {
+        background: ${props => props.theme.ecashpurple};
+        border-color: ${props => props.theme.ecashpurple};
+        color: ${props => props.theme.contrast};
+    }
+`;
 
 const TokenList = ({ tokens }) => {
     return (
@@ -16,6 +31,13 @@ const TokenList = ({ tokens }) => {
                     />
                 </Link>
             ))}
+            <CreateToken
+                to={{
+                    pathname: `/tokens`,
+                }}
+            >
+                Create a Token
+            </CreateToken>
         </div>
     );
 };
