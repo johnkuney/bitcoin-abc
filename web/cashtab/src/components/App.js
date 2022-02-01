@@ -239,7 +239,7 @@ const App = () => {
     const hasLightsOutTheme = validWallet
         ? checkForTokenById(
               wallet.state.tokens,
-              'a9c741fc5a48468b07da7d710a133003b0d31a04a466b89417f34177430870ec',
+              'e164cfb24fd4c2fa5dc77732bb30aeeb865b8c86637998c220f4e7aaaaf45599',
           )
         : false;
 
