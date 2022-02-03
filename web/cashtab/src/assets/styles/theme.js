@@ -97,4 +97,9 @@ export const theme = {
         },
         background: '#fff',
     },
+    advancedCollapse: {
+        background: '#255173',
+        color: '#fff',
+        icon: '#fff',
+    },
 };
