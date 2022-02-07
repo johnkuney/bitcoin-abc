@@ -11,7 +11,7 @@ export const LoadingCtn = styled.div`
     svg {
         width: 50px;
         height: 50px;
-        fill: ${props => props.theme.ecashblue};
+        fill: ${props => props.theme.eCashBlue};
     }
 `;
 

@@ -930,51 +930,6 @@ const SendBCH = ({ jestBCH, passLoadingStatus }) => {
                                     </Panel>
                                 </AdvancedCollapse>
                             </div>
-                            {/* {!isOneToManyXECSend && (
-                                <>
-                                    <LocaleFormattedValue>
-                                        {formatBalance(
-                                            formData.value,
-                                            userLocale,
-                                        )}{' '}
-                                        {selectedCurrency}
-                                    </LocaleFormattedValue>
-                                    <ConvertAmount>
-                                        {fiatPriceString !== '' && '='}{' '}
-                                        {fiatPriceString}
-                                    </ConvertAmount>
-                                </>
-                            )}
-                            <div
-                                style={{
-                                    paddingTop: '12px',
-                                }}
-                            >
-                                {!balances.totalBalance ||
-                                apiError ||
-                                sendBchAmountError ||
-                                sendBchAddressError ? (
-                                    <SecondaryButton>Send</SecondaryButton>
-                                ) : (
-                                    <>
-                                        {txInfoFromUrl ? (
-                                            <PrimaryButton
-                                                onClick={() => showModal()}
-                                            >
-                                                Send
-                                            </PrimaryButton>
-                                        ) : (
-                                            <PrimaryButton
-                                                onClick={() => {
-                                                    send();
-                                                }}
-                                            >
-                                                Send
-                                            </PrimaryButton>
-                                        )}
-                                    </>
-                                )}
-                            </div> */}
                             {queryStringText && (
                                 <Alert
                                     message={`You are sending a transaction to an address including query parameters "${queryStringText}." Only the "amount" parameter, in units of ${currency.ticker} satoshis, is currently supported.`}

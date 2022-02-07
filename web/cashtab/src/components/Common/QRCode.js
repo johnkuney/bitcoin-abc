@@ -16,7 +16,7 @@ export const StyledRawQRCode = styled(RawQRCode)`
     }
     :hover {
         border-color: ${({ xec = 0, ...props }) =>
-            xec === 1 ? props.theme.ecashblue : props.theme.ecashpurple};
+            xec === 1 ? props.theme.eCashBlue : props.theme.eCashPurple};
     }
     @media (max-width: 768px) {
         border-radius: 18px;
@@ -31,10 +31,10 @@ const Copied = styled.div`
     width: 100%;
     text-align: center;
     background-color: ${({ xec = 0, ...props }) =>
-        xec === 1 ? props.theme.ecashblue : props.theme.ecashpurple};
+        xec === 1 ? props.theme.eCashBlue : props.theme.eCashPurple};
     border: 1px solid;
     border-color: ${({ xec = 0, ...props }) =>
-        xec === 1 ? props.theme.ecashblue : props.theme.ecashpurple};
+        xec === 1 ? props.theme.eCashBlue : props.theme.eCashPurple};
     color: ${props => props.theme.contrast};
     position: absolute;
     top: 65px;
@@ -48,7 +48,7 @@ const PrefixLabel = styled.span`
     text-align: right;
     font-weight: bold;
     color: ${({ xec = 0, ...props }) =>
-        xec === 1 ? props.theme.ecashblue : props.theme.ecashpurple};
+        xec === 1 ? props.theme.eCashBlue : props.theme.eCashPurple};
     @media (max-width: 768px) {
         font-size: 12px;
     }

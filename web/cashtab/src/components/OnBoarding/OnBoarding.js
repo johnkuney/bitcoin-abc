@@ -34,7 +34,7 @@ export const WelcomeText = styled.p`
 
 export const WelcomeLink = styled.a`
     text-decoration: underline;
-    color: ${props => props.theme.ecashblue};
+    color: ${props => props.theme.eCashBlue};
 `;
 
 const OnBoarding = () => {

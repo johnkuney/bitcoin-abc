@@ -13,8 +13,8 @@ const CreateToken = styled(Link)`
     margin-top: 20px;
     display: inline-block;
     :hover {
-        background: ${props => props.theme.ecashpurple};
-        border-color: ${props => props.theme.ecashpurple};
+        background: ${props => props.theme.eCashPurple};
+        border-color: ${props => props.theme.eCashPurple};
         color: ${props => props.theme.contrast};
     }
 `;

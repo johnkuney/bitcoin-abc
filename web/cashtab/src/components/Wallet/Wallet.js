@@ -48,13 +48,13 @@ export const TabLabel = styled.button`
         active &&
         `    
         color: ${props.theme.contrast};
-        border-bottom: 2px solid ${props.theme.ecashblue}   
+        border-bottom: 2px solid ${props.theme.eCashBlue}   
        
   `}
     ${({ token, ...props }) =>
         token &&
         `
-        border-color:${props.theme.ecashpurple} 
+        border-color:${props.theme.eCashPurple} 
   `}
 `;
 
@@ -68,23 +68,23 @@ export const TabPane = styled.div`
 `;
 
 export const Links = styled(Link)`
-    color: ${props => props.theme.darkblue};
+    color: ${props => props.theme.darkBlue};
     width: 100%;
     font-size: 16px;
     margin: 10px 0 20px 0;
-    border: 1px solid ${props => props.theme.darkblue};
+    border: 1px solid ${props => props.theme.darkBlue};
     padding: 14px 0;
     display: inline-block;
     border-radius: 3px;
     transition: all 200ms ease-in-out;
     svg {
-        fill: ${props => props.theme.darkblue};
+        fill: ${props => props.theme.darkBlue};
     }
     :hover {
-        color: ${props => props.theme.ecashblue};
-        border-color: ${props => props.theme.ecashblue};
+        color: ${props => props.theme.eCashBlue};
+        border-color: ${props => props.theme.eCashBlue};
         svg {
-            fill: ${props => props.theme.ecashblue};
+            fill: ${props => props.theme.eCashBlue};
         }
     }
     @media (max-width: 768px) {
@@ -94,24 +94,24 @@ export const Links = styled(Link)`
 `;
 
 export const ExternalLink = styled.a`
-    color: ${props => props.theme.darkblue};
+    color: ${props => props.theme.darkBlue};
     width: 100%;
     font-size: 16px;
     margin: 0 0 20px 0;
-    border: 1px solid ${props => props.theme.darkblue};
+    border: 1px solid ${props => props.theme.darkBlue};
     padding: 14px 0;
     display: inline-block;
     border-radius: 3px;
     transition: all 200ms ease-in-out;
     svg {
-        fill: ${props => props.theme.darkblue};
+        fill: ${props => props.theme.darkBlue};
         transition: all 200ms ease-in-out;
     }
     :hover {
-        color: ${props => props.theme.ecashblue};
-        border-color: ${props => props.theme.ecashblue};
+        color: ${props => props.theme.eCashBlue};
+        border-color: ${props => props.theme.eCashBlue};
         svg {
-            fill: ${props => props.theme.ecashblue};
+            fill: ${props => props.theme.eCashBlue};
         }
     }
     @media (max-width: 768px) {

@@ -2,10 +2,12 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { ReactComponent as SentIcon } from '@assets/send.svg';
-import { ReactComponent as ReceiveIcon } from '@assets/receive.svg';
-import { ReactComponent as GenesisIcon } from '@assets/flask.svg';
-import { ReactComponent as UnparsedIcon } from '@assets/alert-circle.svg';
+import {
+    SentIcon,
+    ReceiveIcon,
+    GenesisIcon,
+    UnparsedIcon,
+} from '@components/Common/CustomIcons';
 import { currency } from '@components/Common/Ticker';
 import makeBlockie from 'ethereum-blockies-base64';
 import { Img } from 'react-image';
@@ -35,9 +37,9 @@ const SentTx = styled(TxIcon)`
 `;
 const ReceivedTx = styled(TxIcon)`
     svg {
-        fill: ${props => props.theme.ecashblue};
+        fill: ${props => props.theme.eCashBlue};
     }
-    border-color: ${props => props.theme.ecashblue};
+    border-color: ${props => props.theme.eCashBlue};
 `;
 const GenesisTx = styled(TxIcon)`
     border-color: ${props => props.theme.genesisGreen};
@@ -46,7 +48,7 @@ const GenesisTx = styled(TxIcon)`
     }
 `;
 const UnparsedTx = styled(TxIcon)`
-    color: ${props => props.theme.ecashblue} !important;
+    color: ${props => props.theme.eCashBlue} !important;
 `;
 const DateType = styled.div`
     text-align: left;
@@ -72,7 +74,7 @@ const LeftTextCtn = styled.div`
         color: ${props => props.theme.genesisGreen};
     }
     .received {
-        color: ${props => props.theme.ecashblue};
+        color: ${props => props.theme.eCashBlue};
     }
     h4 {
         font-size: 12px;
@@ -97,7 +99,7 @@ const RightTextCtn = styled.div`
         color: ${props => props.theme.genesisGreen};
     }
     .received {
-        color: ${props => props.theme.ecashblue};
+        color: ${props => props.theme.eCashBlue};
     }
     h4 {
         font-size: 12px;
@@ -136,9 +138,9 @@ const OpReturnType = styled.div`
     }
     a:hover {
         opacity: 1;
-        border-color: ${props => props.theme.ecashblue};
+        border-color: ${props => props.theme.eCashBlue};
         color: ${props => props.theme.contrast};
-        background: ${props => props.theme.ecashblue};
+        background: ${props => props.theme.eCashBlue};
     }
     ${({ received, ...props }) =>
         received &&
@@ -153,7 +155,7 @@ const SentLabel = styled.span`
 `;
 const ReceivedLabel = styled.span`
     font-weight: bold;
-    color: ${props => props.theme.ecashblue} !important;
+    color: ${props => props.theme.eCashBlue} !important;
 `;
 const GenesisLabel = styled.span`
     font-weight: bold;
@@ -162,7 +164,7 @@ const GenesisLabel = styled.span`
 const CashtabMessageLabel = styled.span`
     text-align: left;
     font-weight: bold;
-    color: ${props => props.theme.ecashblue} !important;
+    color: ${props => props.theme.eCashBlue} !important;
     white-space: nowrap;
 `;
 const EncryptionMessageLabel = styled.span`
@@ -184,7 +186,7 @@ const MessageLabel = styled.span`
     white-space: nowrap;
 `;
 const ReplyMessageLabel = styled.span`
-    color: ${props => props.theme.ecashblue} !important;
+    color: ${props => props.theme.eCashBlue} !important;
 `;
 
 const TxInfo = styled.div`
@@ -204,16 +206,13 @@ const TxInfo = styled.div`
         color: ${props => props.theme.genesisGreen};
     }
     .received {
-        color: ${props => props.theme.ecashblue};
+        color: ${props => props.theme.eCashBlue};
     }
     h4 {
         font-size: 12px;
         color: ${props => props.theme.lightWhite};
         margin: 0;
     }
-
-    /* color: ${props =>
-        props.outgoing ? props.theme.secondary : props.theme.ecashblue}; */
 
     @media screen and (max-width: 500px) {
         font-size: 0.8rem;
@@ -226,7 +225,7 @@ const TokenInfo = styled.div`
     justify-content: flex-end;
 
     color: ${props =>
-        props.outgoing ? props.theme.secondary : props.theme.ecashblue};
+        props.outgoing ? props.theme.secondary : props.theme.eCashBlue};
 
     @media screen and (max-width: 500px) {
         font-size: 0.8rem;

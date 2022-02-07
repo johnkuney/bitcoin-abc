@@ -485,14 +485,6 @@ const CreateTokenForm = ({
             </Modal>
             <CreateTokenCtn>
                 <h3>Create a Token</h3>
-                {/* <TokenCollapse
-                    collapsible={disabled ? 'disabled' : true}
-                    disabled={disabled}
-                    style={{
-                        marginBottom: '24px',
-                    }}
-                >
-                    <Panel header="Create eToken" key="1"> */}
                 {!disabled && (
                     <>
                         <AntdFormWrapper>
@@ -568,7 +560,6 @@ const CreateTokenForm = ({
                                     }
                                 >
                                     <Input
-                                        // addonBefore="Decimals"
                                         placeholder="Enter number of decimal places"
                                         name="newTokenDecimals"
                                         type="number"
@@ -594,7 +585,6 @@ const CreateTokenForm = ({
                                     }
                                 >
                                     <Input
-                                        // addonBefore="Supply"
                                         placeholder="Enter the fixed supply of your token"
                                         name="newTokenInitialQty"
                                         type="number"
@@ -620,7 +610,6 @@ const CreateTokenForm = ({
                                     }
                                 >
                                     <Input
-                                        // addonBefore="Document URL"
                                         placeholder="Enter a website for your token"
                                         name="newTokenDocumentUrl"
                                         value={newTokenDocumentUrl}
@@ -797,8 +786,6 @@ const CreateTokenForm = ({
                         </SmartButton>
                     </>
                 )}
-                {/* </Panel>
-                </TokenCollapse> */}
             </CreateTokenCtn>
         </>
     );

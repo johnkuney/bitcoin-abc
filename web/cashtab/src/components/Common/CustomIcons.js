@@ -11,6 +11,10 @@ import {
 } from '@ant-design/icons';
 import { Image } from 'antd';
 import { currency } from '@components/Common/Ticker';
+import { ReactComponent as Sent } from '@assets/send.svg';
+import { ReactComponent as Receive } from '@assets/receive.svg';
+import { ReactComponent as Genesis } from '@assets/flask.svg';
+import { ReactComponent as Unparsed } from '@assets/alert-circle.svg';
 
 export const CashLoadingIcon = <LoadingOutlined className="cashLoadingIcon" />;
 
@@ -63,7 +67,7 @@ export const LoadingBlock = styled.div`
     svg {
         width: 50px;
         height: 50px;
-        fill: ${props => props.theme.ecashblue};
+        fill: ${props => props.theme.eCashBlue};
     }
 `;
 
@@ -72,3 +76,8 @@ export const CashLoader = () => (
         <LoadingOutlined />
     </LoadingBlock>
 );
+
+export const SentIcon = () => <Sent />;
+export const ReceiveIcon = () => <Receive />;
+export const GenesisIcon = () => <Genesis />;
+export const UnparsedIcon = () => <Unparsed />;

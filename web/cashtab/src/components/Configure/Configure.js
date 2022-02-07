@@ -39,13 +39,13 @@ const { Panel } = Collapse;
 
 const SettingsLink = styled.a`
     text-decoration: underline;
-    color: ${props => props.theme.ecashblue};
+    color: ${props => props.theme.eCashBlue};
     :visited {
         text-decoration: underline;
-        color: ${props => props.theme.ecashblue};
+        color: ${props => props.theme.eCashBlue};
     }
     :hover {
-        color: ${props => props.theme.ecashpurple};
+        color: ${props => props.theme.eCashPurple};
     }
 `;
 
@@ -78,7 +78,7 @@ const SWName = styled.div`
 
     h3 {
         font-size: 16px;
-        color: ${props => props.theme.darkblue};
+        color: ${props => props.theme.darkBlue};
         margin: 0;
         text-align: center;
         white-space: nowrap;
@@ -112,7 +112,7 @@ const SWBalance = styled.div`
     }
     div {
         font-size: 13px;
-        color: ${props => props.theme.darkblue};
+        color: ${props => props.theme.darkBlue};
         margin: 0;
         text-align: center;
         white-space: nowrap;
@@ -151,16 +151,16 @@ const SWButtonCtn = styled.div`
     }
 
     svg {
-        stroke: ${props => props.theme.darkblue};
-        fill: ${props => props.theme.darkblue};
+        stroke: ${props => props.theme.darkBlue};
+        fill: ${props => props.theme.darkBlue};
         width: 25px;
         height: 25px;
         margin-right: 20px;
         cursor: pointer;
 
         :first-child:hover {
-            stroke: ${props => props.theme.ecashblue};
-            fill: ${props => props.theme.ecashblue};
+            stroke: ${props => props.theme.eCashBlue};
+            fill: ${props => props.theme.eCashBlue};
         }
         :hover {
             stroke: ${props => props.theme.settings.delete};
@@ -178,7 +178,7 @@ const AWRow = styled.div`
     h3 {
         font-size: 16px;
         display: inline-block;
-        color: ${props => props.theme.darkblue};
+        color: ${props => props.theme.darkBlue};
         margin: 0;
         text-align: left;
         font-weight: bold;
@@ -189,7 +189,7 @@ const AWRow = styled.div`
     h4 {
         font-size: 16px;
         display: inline-block;
-        color: ${props => props.theme.ecashblue} !important;
+        color: ${props => props.theme.eCashBlue} !important;
         margin: 0;
         text-align: right;
     }
@@ -205,10 +205,10 @@ const StyledConfigure = styled.div`
         font-size: 25px;
     }
     svg {
-        fill: ${props => props.theme.ecashblue};
+        fill: ${props => props.theme.eCashBlue};
     }
     p {
-        color: ${props => props.theme.darkblue};
+        color: ${props => props.theme.darkBlue};
     }
 `;
 
@@ -236,7 +236,7 @@ const GeneralSettingsItem = styled.div`
         background-color: #bdbdbd;
     }
     .ant-switch-checked {
-        background-color: ${props => props.theme.ecashblue};
+        background-color: ${props => props.theme.eCashBlue};
         svg {
             fill: ${props => props.theme.contrast};
         }

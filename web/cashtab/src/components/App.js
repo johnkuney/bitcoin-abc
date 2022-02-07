@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import 'antd/dist/antd.less';
-import { Modal, Spin } from 'antd';
+import { Spin } from 'antd';
 import { CashLoadingIcon } from '@components/Common/CustomIcons';
 import '../index.css';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
-import { theme, theme2 } from '@assets/styles/theme-new';
+import { theme, themeLightsOut } from '@assets/styles/theme';
 import { ReactComponent as HomeIcon } from '@assets/home.svg';
 import { ReactComponent as SendIcon } from '@assets/send.svg';
 import { ReactComponent as ReceiveIcon } from '@assets/receive.svg';
@@ -20,7 +20,6 @@ import CashTab from '@assets/cashtab_xec.png';
 import './App.css';
 import { WalletContext } from '@utils/context';
 import { isValidStoredWallet } from '@utils/cashMethods';
-// import WalletLabel from '@components/Common/WalletLabel.js';
 import {
     Route,
     Redirect,
@@ -49,8 +48,8 @@ const GlobalStyle = createGlobalStyle`
     .ant-modal-wrap > div > div.ant-modal-content > div > div > div.ant-modal-confirm-btns > button:hover,.ant-modal-confirm-btns > button:hover, .ant-modal-footer > button:hover, #cropControlsConfirm:hover {
         color: ${props => props.theme.contrast};
         transition: all 0.3s;
-        background-color: ${props => props.theme.ecashblue};
-        border-color: ${props => props.theme.ecashblue};
+        background-color: ${props => props.theme.eCashBlue};
+        border-color: ${props => props.theme.eCashBlue};
     }   
     .selectedCurrencyOption {
         text-align: left;
@@ -58,12 +57,12 @@ const GlobalStyle = createGlobalStyle`
         background-color: ${props => props.theme.contrast} !important;
     }
     .cashLoadingIcon {
-        color: ${props => props.theme.ecashblue} !important;
+        color: ${props => props.theme.eCashBlue} !important;
         font-size: 48px !important;
     }
     .selectedCurrencyOption:hover {
         color: ${props => props.theme.contrast} !important;
-        background-color: ${props => props.theme.ecashblue} !important;
+        background-color: ${props => props.theme.eCashBlue} !important;
     }
     #addrSwitch, #cropSwitch {
         .ant-switch-checked {
@@ -79,7 +78,7 @@ const GlobalStyle = createGlobalStyle`
         background-color: ${props => props.theme.forms.border} !important;
     }
     .ant-slider-track {
-        background-color: ${props => props.theme.ecashblue} !important;
+        background-color: ${props => props.theme.eCashBlue} !important;
     }
     .ant-descriptions-bordered .ant-descriptions-row {
     background: ${props => props.theme.contrast};
@@ -244,7 +243,7 @@ const App = () => {
         : false;
 
     return (
-        <ThemeProvider theme={!hasLightsOutTheme ? theme : theme2}>
+        <ThemeProvider theme={!hasLightsOutTheme ? theme : themeLightsOut}>
             <GlobalStyle />
             <Spin
                 spinning={
@@ -264,7 +263,6 @@ const App = () => {
                                 {/*End component not included in extension as desktop only*/}
                             </HeaderCtn>
                             <ProtectableComponentWrapper>
-                                {/* <WalletLabel name={wallet.name}></WalletLabel> */}
                                 <Switch>
                                     <Route path="/wallet">
                                         <Wallet />

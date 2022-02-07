@@ -36,27 +36,27 @@ const GlobalStyle = createGlobalStyle`
     .ant-modal-wrap > div > div.ant-modal-content > div > div > div.ant-modal-confirm-btns > button, .ant-modal > button, .ant-modal-confirm-btns > button, .ant-modal-footer > button, #cropControlsConfirm{
         border-radius: 8px;
         background-color: ${props => props.theme.contrast};
-        color: ${props => props.theme.darkblue};
+        color: ${props => props.theme.darkBlue};
         font-weight: bold;
     }    
     
     .ant-modal-wrap > div > div.ant-modal-content > div > div > div.ant-modal-confirm-btns > button:hover,.ant-modal-confirm-btns > button:hover, .ant-modal-footer > button:hover, #cropControlsConfirm:hover {
-        color: ${props => props.theme.ecashblue};
+        color: ${props => props.theme.eCashBlue};
         transition: color 0.3s;
         background-color: ${props => props.theme.contrast};
     }   
     .selectedCurrencyOption {
         text-align: left;
-        color: ${props => props.theme.darkblue} !important;
+        color: ${props => props.theme.darkBlue} !important;
         background-color: ${props => props.theme.contrast} !important;
     }
     .cashLoadingIcon {
-        color: ${props => props.theme.ecashblue} !important;
+        color: ${props => props.theme.eCashBlue} !important;
         font-size: 48px !important;
     }
     .selectedCurrencyOption:hover {
         color: ${props => props.theme.contrast} !important;
-        background-color: ${props => props.theme.ecashblue} !important;
+        background-color: ${props => props.theme.eCashBlue} !important;
     }
     #addrSwitch, #cropSwitch {
         .ant-switch-checked {
@@ -72,7 +72,7 @@ const GlobalStyle = createGlobalStyle`
         background-color: ${props => props.theme.forms.border} !important;
     }
     .ant-slider-track {
-        background-color: ${props => props.theme.ecashblue} !important;
+        background-color: ${props => props.theme.eCashBlue} !important;
     }
 `;
 
@@ -125,9 +125,9 @@ export const NavButton = styled.button`
     ${({ active, ...props }) =>
         active &&
         `    
-        color: ${props.theme.ecashblue};
+        color: ${props.theme.eCashBlue};
         .anticon {
-            color: ${props.theme.ecashblue};
+            color: ${props.theme.eCashBlue};
         }
   `}
 `;
@@ -171,10 +171,10 @@ export const HeaderCtn = styled.div`
     border-bottom: 1px solid ${props => props.theme.forms.border};
 
     a {
-        color: ${props => props.theme.darkblue};
+        color: ${props => props.theme.darkBlue};
 
         :hover {
-            color: ${props => props.theme.ecashblue};
+            color: ${props => props.theme.eCashBlue};
         }
     }
 

@@ -12,7 +12,7 @@ const StyledSignIn = styled.div`
         font-size: 25px;
     }
     p {
-        color: ${props => props.theme.darkblue};
+        color: ${props => props.theme.darkBlue};
     }
 `;
 

@@ -35,7 +35,7 @@ const AntdDescriptionsCss = css`
     .ant-descriptions-item-label,
     .ant-descriptions-item-content {
         background-color: ${props => props.theme.contrast} !important;
-        color: ${props => props.theme.dropdowntext};
+        color: ${props => props.theme.dropdownText};
     }
 `;
 const AntdDescriptionsWrapper = styled.div`

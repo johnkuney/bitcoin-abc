@@ -28,7 +28,7 @@ export const SwitchBtnCtn = styled.div`
         box-shadow: none !important;
     }
     .slpActive {
-        background: ${props => props.theme.ecashpurple} !important;
+        background: ${props => props.theme.eCashPurple} !important;
     }
 `;
 
@@ -42,7 +42,7 @@ export const SwitchBtn = styled.div`
     width: 100px;
     margin: 0 1px;
     text-decoration: none;
-    background: ${props => props.theme.ecashblue};
+    background: ${props => props.theme.eCashBlue};
     user-select: none;
     :first-child {
         border-radius: 100px 0 0 100px;

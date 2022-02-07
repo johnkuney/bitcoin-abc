@@ -31,7 +31,7 @@ const Wrapper = styled.div`
     }
     :hover {
         h4 {
-            color: ${props => props.theme.ecashpurple};
+            color: ${props => props.theme.eCashPurple};
         }
     }
 `;

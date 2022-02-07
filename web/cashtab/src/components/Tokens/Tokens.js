@@ -53,6 +53,10 @@ const Tokens = ({ jestBCH, passLoadingStatus }) => {
                     </ZeroBalanceHeader>
                 ) : (
                     <>
+                        <BalanceHeader
+                            balance={balances.totalBalance}
+                            ticker={currency.ticker}
+                        />
                         {fiatPrice !== null && (
                             <BalanceHeaderFiat
                                 balance={balances.totalBalance}
@@ -60,10 +64,6 @@ const Tokens = ({ jestBCH, passLoadingStatus }) => {
                                 fiatPrice={fiatPrice}
                             />
                         )}
-                        <BalanceHeader
-                            balance={balances.totalBalance}
-                            ticker={currency.ticker}
-                        />
                     </>
                 )}
             </WalletInfoCtn>
