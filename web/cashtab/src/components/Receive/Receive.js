@@ -112,7 +112,7 @@ const WalletInfo = () => {
     );
 };
 
-const Wallet = () => {
+const Receive = () => {
     const ContextValue = React.useContext(WalletContext);
     const { wallet, previousWallet, loading } = ContextValue;
 
@@ -134,4 +134,4 @@ const Wallet = () => {
     );
 };
 
-export default Wallet;
+export default Receive;

@@ -11,7 +11,6 @@ import BalanceHeader from '@components/Common/BalanceHeader';
 import BalanceHeaderFiat from '@components/Common/BalanceHeaderFiat';
 import {
     LoadingCtn,
-    ZeroBalanceHeader,
     WalletInfoCtn,
     SidePaddingCtn,
 } from '@components/Common/Atoms';
@@ -232,7 +231,7 @@ const WalletInfo = () => {
     );
 };
 
-const Wallet = () => {
+const Home = () => {
     const ContextValue = React.useContext(WalletContext);
     const { wallet, previousWallet, loading } = ContextValue;
 
@@ -254,4 +253,4 @@ const Wallet = () => {
     );
 };
 
-export default Wallet;
+export default Home;

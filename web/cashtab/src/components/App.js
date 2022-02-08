@@ -9,7 +9,7 @@ import { ReactComponent as HomeIcon } from '@assets/home.svg';
 import { ReactComponent as SendIcon } from '@assets/send.svg';
 import { ReactComponent as ReceiveIcon } from '@assets/receive.svg';
 import { ReactComponent as SettingsIcon } from '@assets/cog.svg';
-import Wallet from '@components/Wallet/Wallet';
+import Home from '@components/Home/Home';
 import Receive from '@components/Receive/Receive';
 import Tokens from '@components/Tokens/Tokens';
 import Send from '@components/Send/Send';
@@ -265,7 +265,7 @@ const App = () => {
                             <ProtectableComponentWrapper>
                                 <Switch>
                                     <Route path="/wallet">
-                                        <Wallet />
+                                        <Home />
                                     </Route>
                                     <Route path="/receive">
                                         <Receive

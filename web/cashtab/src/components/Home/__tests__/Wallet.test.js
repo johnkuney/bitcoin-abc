@@ -2,7 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import { ThemeProvider } from 'styled-components';
 import { theme } from '@assets/styles/theme';
-import Wallet from '../Wallet';
+import Home from '../Home';
 import {
     walletWithBalancesAndTokens,
     walletWithBalancesMock,
@@ -28,7 +28,7 @@ test('Wallet without BCH balance', () => {
     const component = renderer.create(
         <ThemeProvider theme={theme}>
             <Router>
-                <Wallet />
+                <Home />
             </Router>
         </ThemeProvider>,
     );
@@ -41,7 +41,7 @@ test('Wallet with BCH balances', () => {
     const component = renderer.create(
         <ThemeProvider theme={theme}>
             <Router>
-                <Wallet />
+                <Home />
             </Router>
         </ThemeProvider>,
     );
@@ -54,7 +54,7 @@ test('Wallet with BCH balances and tokens', () => {
     const component = renderer.create(
         <ThemeProvider theme={theme}>
             <Router>
-                <Wallet />
+                <Home />
             </Router>
         </ThemeProvider>,
     );
@@ -67,7 +67,7 @@ test('Wallet with BCH balances and tokens and state field', () => {
     const component = renderer.create(
         <ThemeProvider theme={theme}>
             <Router>
-                <Wallet />
+                <Home />
             </Router>
         </ThemeProvider>,
     );
@@ -83,7 +83,7 @@ test('Without wallet defined', () => {
     const component = renderer.create(
         <ThemeProvider theme={theme}>
             <Router>
-                <Wallet />
+                <Home />
             </Router>
         </ThemeProvider>,
     );
