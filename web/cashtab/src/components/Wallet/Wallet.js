@@ -125,6 +125,20 @@ export const AddrSwitchContainer = styled.div`
     padding: 6px 0 12px 0;
 `;
 
+const CreateToken = styled(Link)`
+    color: ${props => props.theme.contrast};
+    border: 1px solid #fff;
+    padding: 4px 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+    display: inline-block;
+    :hover {
+        background: ${props => props.theme.eCashPurple};
+        border-color: ${props => props.theme.eCashPurple};
+        color: ${props => props.theme.contrast};
+    }
+`;
+
 const WalletInfo = () => {
     const ContextValue = React.useContext(WalletContext);
     const { wallet, fiatPrice, apiError, cashtabSettings } = ContextValue;
@@ -205,6 +219,13 @@ const WalletInfo = () => {
                             will appear here
                         </p>
                     )}
+                    <CreateToken
+                        to={{
+                            pathname: `/tokens`,
+                        }}
+                    >
+                        Create a Token
+                    </CreateToken>
                 </TabPane>
             </SidePaddingCtn>
         </>
