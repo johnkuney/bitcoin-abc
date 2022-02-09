@@ -4,7 +4,7 @@ import { Spin } from 'antd';
 import { CashLoadingIcon } from '@components/Common/CustomIcons';
 import '../index.css';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
-import { theme, themeLightsOut } from '@assets/styles/theme';
+import { theme } from '@assets/styles/theme';
 import { ReactComponent as HomeIcon } from '@assets/home.svg';
 import { ReactComponent as SendIcon } from '@assets/send.svg';
 import { ReactComponent as ReceiveIcon } from '@assets/receive.svg';
@@ -34,9 +34,15 @@ import { checkForTokenById } from '@utils/tokenMethods.js';
 import ProtectableComponentWrapper from './Authentication/ProtectableComponentWrapper';
 
 const GlobalStyle = createGlobalStyle`
-*{
-    user-select: none;
-}    
+    *{
+        user-select: none;
+    }
+    *::placeholder {
+        color: ${props => props.theme.forms.placeholder} !important;
+    }
+    *::selection {
+    background: ${props => props.theme.eCashBlue} !important;
+    }
     .ant-modal-wrap > div > div.ant-modal-content > div > div > div.ant-modal-confirm-btns > button, .ant-modal > button, .ant-modal-confirm-btns > button, .ant-modal-footer > button, #cropControlsConfirm {
         border-radius: 3px;
         background-color: ${props => props.theme.contrast};
@@ -51,10 +57,11 @@ const GlobalStyle = createGlobalStyle`
         background-color: ${props => props.theme.eCashBlue};
         border-color: ${props => props.theme.eCashBlue};
     }   
-    .selectedCurrencyOption {
+    .selectedCurrencyOption, .ant-select-dropdown {
         text-align: left;
-        color: ${props => props.theme.black} !important;
-        background-color: ${props => props.theme.contrast} !important;
+        color: ${props => props.theme.contrast} !important;
+        background-color: ${props =>
+            props.theme.collapses.expandedBackground} !important;
     }
     .cashLoadingIcon {
         color: ${props => props.theme.eCashBlue} !important;
@@ -235,15 +242,8 @@ const App = () => {
           )
         : false;
 
-    const hasLightsOutTheme = validWallet
-        ? checkForTokenById(
-              wallet.state.tokens,
-              'e164cfb24fd4c2fa5dc77732bb30aeeb865b8c86637998c220f4e7aaaaf45599',
-          )
-        : false;
-
     return (
-        <ThemeProvider theme={!hasLightsOutTheme ? theme : themeLightsOut}>
+        <ThemeProvider theme={theme}>
             <GlobalStyle />
             <Spin
                 spinning={

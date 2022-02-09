@@ -35,6 +35,10 @@ export const WelcomeText = styled.p`
 export const WelcomeLink = styled.a`
     text-decoration: underline;
     color: ${props => props.theme.eCashBlue};
+    :hover {
+        color: ${props => props.theme.eCashPurple} !important;
+        text-decoration: underline !important;
+    }
 `;
 
 const OnBoarding = () => {

@@ -31,6 +31,15 @@ import {
 import PopOut from '@assets/popout.svg';
 
 const GlobalStyle = createGlobalStyle`    
+    *{
+        user-select: none;
+    }
+    *::placeholder {
+        color: ${props => props.theme.forms.placeholder} !important;
+    }
+    *::selection {
+    background: ${props => props.theme.eCashBlue} !important;
+    }
     .ant-modal-wrap > div > div.ant-modal-content > div > div > div.ant-modal-confirm-btns > button, .ant-modal > button, .ant-modal-confirm-btns > button, .ant-modal-footer > button, #cropControlsConfirm{
         border-radius: 3px;
         background-color: ${props => props.theme.contrast};
@@ -45,10 +54,11 @@ const GlobalStyle = createGlobalStyle`
         background-color: ${props => props.theme.eCashBlue};	
         border-color: ${props => props.theme.eCashBlue};
     }   
-    .selectedCurrencyOption {
+    .selectedCurrencyOption, .ant-select-dropdown {
         text-align: left;
-        color: ${props => props.theme.darkBlue} !important;
-        background-color: ${props => props.theme.contrast} !important;
+        color: ${props => props.theme.contrast} !important;
+        background-color: ${props =>
+            props.theme.collapses.expandedBackground} !important;
     }
     .cashLoadingIcon {
         color: ${props => props.theme.eCashBlue} !important;

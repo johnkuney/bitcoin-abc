@@ -45,6 +45,13 @@ export const AntdFormCss = css`
         background-color: ${props => props.theme.forms.selectionBackground};
         border: 1px solid ${props => props.theme.forms.border} !important;
     }
+    .ant-input-wrapper .anticon-qrcode {
+        color: ${props => props.theme.forms.addonForeground} !important;
+    }
+    input.ant-input::placeholder,
+    .ant-select-selection::placeholder {
+        color: ${props => props.theme.forms.placeholder} !important;
+    }
     .ant-select-selector {
         height: 55px !important;
         border: 1px solid ${props => props.theme.forms.border} !important;
@@ -60,6 +67,10 @@ export const AntdFormCss = css`
         > span.ant-input-affix-wrapper {
         background-color: ${props => props.theme.forms.selectionBackground};
         border-color: ${props => props.theme.forms.error} !important;
+    }
+
+    .ant-input:hover {
+        border-color: ${props => props.theme.forms.highlightBox};
     }
 
     .ant-form-item-has-error .ant-input,

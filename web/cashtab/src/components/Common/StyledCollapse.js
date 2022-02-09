@@ -6,7 +6,6 @@ export const StyledCollapse = styled(Collapse)`
     border: 1px solid ${props => props.theme.collapses.border} !important;
 
     .ant-collapse-content {
-        border: 1px solid ${props => props.theme.collapses.border};
         border-top: none;
         background-color: ${props =>
             props.theme.collapses.expandedBackground} !important;
@@ -55,6 +54,10 @@ export const TokenCollapse = styled(Collapse)`
 `;
 
 export const AdvancedCollapse = styled(Collapse)`
+    .ant-collapse-content {
+        background-color: ${props =>
+            props.theme.advancedCollapse.expandedBackground} !important;
+    }
     ${({ disabled = false, ...props }) =>
         disabled === true
             ? `
@@ -84,5 +87,6 @@ export const AdvancedCollapse = styled(Collapse)`
            .ant-collapse-arrow {
                font-size: 18px;
            }
+        
             `}
 `;

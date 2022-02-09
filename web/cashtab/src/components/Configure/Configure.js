@@ -144,6 +144,19 @@ const SWButtonCtn = styled.div`
 
     button {
         cursor: pointer;
+        background: transparent;
+        border: 1px solid #fff;
+        box-shadow: none;
+        color: #fff;
+        border-radius: 3px;
+        opacity: 0.6;
+        transition: all 200ms ease-in-out;
+
+        :hover {
+            opacity: 1;
+            background: ${props => props.theme.eCashBlue};
+            border-color: ${props => props.theme.eCashBlue};
+        }
 
         @media (max-width: 768px) {
             font-size: 14px;
@@ -151,8 +164,8 @@ const SWButtonCtn = styled.div`
     }
 
     svg {
-        stroke: ${props => props.theme.darkBlue};
-        fill: ${props => props.theme.darkBlue};
+        stroke: ${props => props.theme.eCashBlue};
+        fill: ${props => props.theme.eCashBlue};
         width: 25px;
         height: 25px;
         margin-right: 20px;
