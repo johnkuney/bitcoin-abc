@@ -578,7 +578,10 @@ const Configure = () => {
                 {wallet && wallet.mnemonic && (
                     <StyledCollapse>
                         <Panel header="Click to reveal seed phrase" key="1">
-                            <p className="notranslate">
+                            <p
+                                className="notranslate"
+                                style={{ userSelect: 'text' }}
+                            >
                                 {wallet && wallet.mnemonic
                                     ? wallet.mnemonic
                                     : ''}
