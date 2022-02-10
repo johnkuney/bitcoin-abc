@@ -849,6 +849,22 @@ const SendBCH = ({ jestBCH, passLoadingStatus }) => {
                                             <TextAreaLabel>
                                                 Message:&nbsp;&nbsp;
                                                 <Switch
+                                                    style={
+                                                        isOneToManyXECSend
+                                                            ? {
+                                                                  cursor: 'not-allowed',
+                                                                  pointerEvents:
+                                                                      'none',
+                                                                  marginBottom:
+                                                                      '7px',
+                                                                  opacity:
+                                                                      '0.5',
+                                                              }
+                                                            : {
+                                                                  marginBottom:
+                                                                      '7px',
+                                                              }
+                                                    }
                                                     checkedChildren="Private"
                                                     unCheckedChildren="Public"
                                                     defaultunchecked="true"
@@ -862,9 +878,6 @@ const SendBCH = ({ jestBCH, passLoadingStatus }) => {
                                                         setIsOneToManyXECSend(
                                                             false,
                                                         );
-                                                    }}
-                                                    style={{
-                                                        marginBottom: '7px',
                                                     }}
                                                 />
                                             </TextAreaLabel>
