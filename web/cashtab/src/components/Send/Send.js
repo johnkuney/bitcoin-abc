@@ -849,22 +849,12 @@ const SendBCH = ({ jestBCH, passLoadingStatus }) => {
                                             <TextAreaLabel>
                                                 Message:&nbsp;&nbsp;
                                                 <Switch
-                                                    style={
+                                                    disabled={
                                                         isOneToManyXECSend
-                                                            ? {
-                                                                  cursor: 'not-allowed',
-                                                                  pointerEvents:
-                                                                      'none',
-                                                                  marginBottom:
-                                                                      '7px',
-                                                                  opacity:
-                                                                      '0.5',
-                                                              }
-                                                            : {
-                                                                  marginBottom:
-                                                                      '7px',
-                                                              }
                                                     }
+                                                    style={{
+                                                        marginBottom: '7px',
+                                                    }}
                                                     checkedChildren="Private"
                                                     unCheckedChildren="Public"
                                                     defaultunchecked="true"
