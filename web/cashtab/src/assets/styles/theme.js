@@ -62,4 +62,10 @@ export const theme = {
         border: '#17171f',
         color: '#fff',
     },
+    modal: {
+        background: '#255173',
+        border: '#17171f',
+        color: '#fff',
+        buttonBackground: '#26415a',
+    },
 };

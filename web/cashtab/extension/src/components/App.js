@@ -40,11 +40,33 @@ const GlobalStyle = createGlobalStyle`
     *::selection {
     background: ${props => props.theme.eCashBlue} !important;
     }
+    .ant-modal-content, .ant-modal-header, .ant-modal-title {
+        background-color: ${props => props.theme.modal.background} !important;
+        color: ${props => props.theme.modal.color} !important;
+    }
+    .ant-modal-content svg {
+        fill: ${props => props.theme.modal.color};
+    }   
+    .ant-modal-footer button {
+        background-color: ${props =>
+            props.theme.modal.buttonBackground} !important;
+        color: ${props => props.theme.modal.color} !important;
+        border-color: ${props => props.theme.modal.border} !important;
+        :hover {
+            background-color: ${props => props.theme.eCashBlue} !important;
+        }
+    }    
     .ant-modal-wrap > div > div.ant-modal-content > div > div > div.ant-modal-confirm-btns > button, .ant-modal > button, .ant-modal-confirm-btns > button, .ant-modal-footer > button, #cropControlsConfirm{
         border-radius: 3px;
-        background-color: ${props => props.theme.contrast};
-        color: ${props => props.theme.walletBackground};
-        font-weight: bold;
+        border-radius: 3px;
+        background-color: ${props =>
+            props.theme.modal.buttonBackground} !important;
+        color: ${props => props.theme.modal.color} !important;
+        border-color: ${props => props.theme.modal.border} !important;
+        :hover {
+            background-color: ${props => props.theme.eCashBlue} !important;
+        }
+        text-shadow: none !important;
         text-shadow: none !important;
     }    
     
@@ -88,7 +110,7 @@ const GlobalStyle = createGlobalStyle`
     background: ${props => props.theme.contrast};	
     }	
     .ant-modal-confirm-content, .ant-modal-confirm-title {	
-        color: ${props => props.theme.walletBackground} !important;	
+        color: ${props => props.theme.contrast} !important;	
     }
 `;
 

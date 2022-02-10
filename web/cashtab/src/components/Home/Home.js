@@ -126,11 +126,13 @@ export const AddrSwitchContainer = styled.div`
 
 const CreateToken = styled(Link)`
     color: ${props => props.theme.contrast};
-    border: 1px solid #fff;
-    padding: 4px 15px;
+    border: 1px solid ${props => props.theme.contrast};
+    padding: 8px 15px;
     border-radius: 5px;
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-bottom: 20px;
     display: inline-block;
+    width: 100%;
     :hover {
         background: ${props => props.theme.eCashPurple};
         border-color: ${props => props.theme.eCashPurple};
@@ -206,6 +208,13 @@ const WalletInfo = () => {
                     )}
                 </TabPane>
                 <TabPane active={activeTab === 'tokens'}>
+                    <CreateToken
+                        to={{
+                            pathname: `/tokens`,
+                        }}
+                    >
+                        Create eToken
+                    </CreateToken>
                     {tokens && tokens.length > 0 ? (
                         <TokenList
                             wallet={wallet}
@@ -218,13 +227,6 @@ const WalletInfo = () => {
                             will appear here
                         </p>
                     )}
-                    <CreateToken
-                        to={{
-                            pathname: `/tokens`,
-                        }}
-                    >
-                        Create a Token
-                    </CreateToken>
                 </TabPane>
             </SidePaddingCtn>
         </>
