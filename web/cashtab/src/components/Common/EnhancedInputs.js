@@ -300,6 +300,7 @@ export const DestinationAddressMulti = ({ inputProps, ...otherProps }) => {
         <AntdFormWrapper>
             <Form.Item {...otherProps}>
                 <TextArea
+                    style={{ height: '189px' }}
                     prefix={<ThemedWalletOutlined />}
                     autoComplete="off"
                     {...inputProps}
