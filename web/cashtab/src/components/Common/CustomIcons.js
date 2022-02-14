@@ -11,10 +11,12 @@ import {
 } from '@ant-design/icons';
 import { Image } from 'antd';
 import { currency } from '@components/Common/Ticker';
-import { ReactComponent as Sent } from '@assets/send.svg';
+import { ReactComponent as Send } from '@assets/send.svg';
 import { ReactComponent as Receive } from '@assets/receive.svg';
 import { ReactComponent as Genesis } from '@assets/flask.svg';
 import { ReactComponent as Unparsed } from '@assets/alert-circle.svg';
+import { ReactComponent as Home } from '@assets/home.svg';
+import { ReactComponent as Settings } from '@assets/cog.svg';
 
 export const CashLoadingIcon = <LoadingOutlined className="cashLoadingIcon" />;
 
@@ -77,7 +79,11 @@ export const CashLoader = () => (
     </LoadingBlock>
 );
 
-export const SentIcon = () => <Sent />;
 export const ReceiveIcon = () => <Receive />;
 export const GenesisIcon = () => <Genesis />;
 export const UnparsedIcon = () => <Unparsed />;
+export const HomeIcon = () => <Home />;
+export const SettingsIcon = () => <Settings />;
+export const SendIcon = styled(Send)`
+    transform: rotate(-35deg);
+`;

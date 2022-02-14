@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import {
-    SentIcon,
+    SendIcon,
     ReceiveIcon,
     GenesisIcon,
     UnparsedIcon,
@@ -33,7 +33,6 @@ const SentTx = styled(TxIcon)`
         margin-right: -3px;
     }
     fill: ${props => props.theme.contrast};
-    transform: rotate(-35deg);
 `;
 const ReceivedTx = styled(TxIcon)`
     svg {
@@ -308,7 +307,7 @@ const Tx = ({ data, fiatPrice, fiatCurrency }) => {
                                 </GenesisTx>
                             ) : (
                                 <SentTx>
-                                    <SentIcon />
+                                    <SendIcon />
                                 </SentTx>
                             )}
                         </>

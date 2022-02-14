@@ -510,7 +510,6 @@ const CreateTokenForm = ({
                                     }
                                 >
                                     <Input
-                                        // addonBefore="Name"
                                         placeholder="Enter a name for your token"
                                         name="newTokenName"
                                         value={newTokenName}
@@ -535,7 +534,6 @@ const CreateTokenForm = ({
                                     }
                                 >
                                     <Input
-                                        // addonBefore="Ticker"
                                         placeholder="Enter a ticker for your token"
                                         name="newTokenTicker"
                                         value={newTokenTicker}

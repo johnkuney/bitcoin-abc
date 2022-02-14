@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { WalletContext } from '@utils/context';
 import { Form, message, Row, Col, Alert, Descriptions, Popover } from 'antd';
-import TokenIconAlert from '@components/Common/Alerts.js';
 import PrimaryButton, {
     SecondaryButton,
 } from '@components/Common/PrimaryButton';
@@ -253,7 +252,6 @@ const SendToken = ({ tokenId, jestBCH, passLoadingStatus }) => {
                         balance={token.balance}
                         ticker={token.info.tokenTicker}
                     />
-                    {/* <TokenIconAlert /> */}
                     <Row type="flex">
                         <Col span={24}>
                             <Form

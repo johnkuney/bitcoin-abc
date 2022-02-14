@@ -17,6 +17,9 @@ export const LoadingCtn = styled.div`
 
 export const SidePaddingCtn = styled.div`
     padding: 0px 30px;
+    @media (max-width: 768px) {
+        padding: 0px 15px;
+    }
 `;
 
 export const FormLabel = styled.label`

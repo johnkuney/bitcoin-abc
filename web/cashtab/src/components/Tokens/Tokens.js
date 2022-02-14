@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { WalletContext } from '@utils/context';
 import { fromSmallestDenomination, getWalletState } from '@utils/cashMethods';
-import TokenIconAlert from '@components/Common/Alerts.js';
 import CreateTokenForm from '@components/Tokens/CreateTokenForm';
 import { currency } from '@components/Common/Ticker.js';
 import useBCH from '@hooks/useBCH';
@@ -68,7 +67,6 @@ const Tokens = ({ jestBCH, passLoadingStatus }) => {
                 )}
             </WalletInfoCtn>
             <SidePaddingCtn>
-                {/* <TokenIconAlert /> */}
                 {apiError && <ApiError />}
                 <CreateTokenForm
                     BCH={BCH}

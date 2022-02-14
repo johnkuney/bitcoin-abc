@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
 import 'antd/dist/antd.less';
 import { Spin } from 'antd';
-import { CashLoadingIcon } from '@components/Common/CustomIcons';
+import {
+    CashLoadingIcon,
+    HomeIcon,
+    SendIcon,
+    ReceiveIcon,
+    SettingsIcon,
+} from '@components/Common/CustomIcons';
 import '../index.css';
 import styled, { ThemeProvider, createGlobalStyle } from 'styled-components';
 import { theme } from '@assets/styles/theme';
-import { ReactComponent as HomeIcon } from '@assets/home.svg';
-import { ReactComponent as SendIcon } from '@assets/send.svg';
-import { ReactComponent as ReceiveIcon } from '@assets/receive.svg';
-import { ReactComponent as SettingsIcon } from '@assets/cog.svg';
 import Home from '@components/Home/Home';
 import Receive from '@components/Receive/Receive';
 import Tokens from '@components/Tokens/Tokens';
@@ -31,9 +33,6 @@ import {
 import PopOut from '@assets/popout.svg';
 
 const GlobalStyle = createGlobalStyle`    
-    *{
-        user-select: none;
-    }
     *::placeholder {
         color: ${props => props.theme.forms.placeholder} !important;
     }
@@ -138,6 +137,7 @@ const Footer = styled.div`
     padding: 0 50px;
     @media (max-width: 768px) {
         width: 100%;
+        padding: 0 20px;
     }
 `;
 
@@ -315,7 +315,6 @@ const App = () => {
                                 >
                                     <SendIcon
                                         style={{
-                                            transform: 'rotate(-35deg)',
                                             marginTop: '-9px',
                                         }}
                                     />
