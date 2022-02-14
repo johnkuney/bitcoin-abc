@@ -8,7 +8,6 @@ import useBCH from '@hooks/useBCH';
 import BalanceHeader from '@components/Common/BalanceHeader';
 import BalanceHeaderFiat from '@components/Common/BalanceHeaderFiat';
 import {
-    ZeroBalanceHeader,
     AlertMsg,
     WalletInfoCtn,
     SidePaddingCtn,
@@ -44,27 +43,15 @@ const Tokens = ({ jestBCH, passLoadingStatus }) => {
         <>
             <WalletInfoCtn>
                 <WalletLabel name={wallet.name}></WalletLabel>
-                {!balances.totalBalance ? (
-                    <ZeroBalanceHeader>
-                        You currently have 0 {currency.ticker}
-                        <br />
-                        Deposit some funds to use this feature
-                    </ZeroBalanceHeader>
-                ) : (
-                    <>
-                        <BalanceHeader
-                            balance={balances.totalBalance}
-                            ticker={currency.ticker}
-                        />
-                        {fiatPrice !== null && (
-                            <BalanceHeaderFiat
-                                balance={balances.totalBalance}
-                                settings={cashtabSettings}
-                                fiatPrice={fiatPrice}
-                            />
-                        )}
-                    </>
-                )}
+                <BalanceHeader
+                    balance={balances.totalBalance}
+                    ticker={currency.ticker}
+                />
+                <BalanceHeaderFiat
+                    balance={balances.totalBalance}
+                    settings={cashtabSettings}
+                    fiatPrice={fiatPrice}
+                />
             </WalletInfoCtn>
             <SidePaddingCtn>
                 {apiError && <ApiError />}
@@ -97,7 +84,7 @@ const Tokens = ({ jestBCH, passLoadingStatus }) => {
                         {cashtabSettings
                             ? `${currency.fiatCurrencies[
                                   cashtabSettings.fiatCurrency
-                              ].slug.toUpperCase()} `
+                              ].slug.toUpperCase()}`
                             : 'USD'}
                         ) to create a token
                     </AlertMsg>
