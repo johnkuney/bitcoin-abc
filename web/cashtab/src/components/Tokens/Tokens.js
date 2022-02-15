@@ -54,50 +54,38 @@ const Tokens = ({ jestBCH, passLoadingStatus }) => {
                     fiatPrice={fiatPrice}
                 />
             </WalletInfoCtn>
-            <SidePaddingCtn>
-                {apiError && <ApiError />}
-                <CreateTokenForm
-                    BCH={BCH}
-                    getRestUrl={getRestUrl}
-                    createToken={createToken}
-                    disabled={
-                        balances.totalBalanceInSatoshis < currency.dustSats
-                    }
-                    passLoadingStatus={passLoadingStatus}
-                />
-                {balances.totalBalanceInSatoshis < currency.dustSats && (
-                    <AlertMsg>
-                        You need at least{' '}
-                        {fromSmallestDenomination(currency.dustSats).toString()}{' '}
-                        {currency.ticker} (
-                        {cashtabSettings
-                            ? `${
-                                  currency.fiatCurrencies[
-                                      cashtabSettings.fiatCurrency
-                                  ].symbol
-                              }`
-                            : '$'}
-                        {(
-                            fromSmallestDenomination(
-                                currency.dustSats,
-                            ).toString() * fiatPrice
-                        ).toFixed(4)}{' '}
-                        {cashtabSettings
-                            ? `${currency.fiatCurrencies[
+            {apiError && <ApiError />}
+            <CreateTokenForm
+                BCH={BCH}
+                getRestUrl={getRestUrl}
+                createToken={createToken}
+                disabled={balances.totalBalanceInSatoshis < currency.dustSats}
+                passLoadingStatus={passLoadingStatus}
+            />
+            {balances.totalBalanceInSatoshis < currency.dustSats && (
+                <AlertMsg>
+                    You need at least{' '}
+                    {fromSmallestDenomination(currency.dustSats).toString()}{' '}
+                    {currency.ticker} (
+                    {cashtabSettings
+                        ? `${
+                              currency.fiatCurrencies[
                                   cashtabSettings.fiatCurrency
-                              ].slug.toUpperCase()}`
-                            : 'USD'}
-                        ) to create a token
-                    </AlertMsg>
-                )}
-                {tokens && tokens.length > 0 ? (
-                    <>
-                        <TokenList tokens={tokens} />
-                    </>
-                ) : (
-                    <>No {currency.tokenTicker} tokens in this wallet</>
-                )}
-            </SidePaddingCtn>
+                              ].symbol
+                          }`
+                        : '$'}
+                    {(
+                        fromSmallestDenomination(currency.dustSats).toString() *
+                        fiatPrice
+                    ).toFixed(4)}{' '}
+                    {cashtabSettings
+                        ? `${currency.fiatCurrencies[
+                              cashtabSettings.fiatCurrency
+                          ].slug.toUpperCase()}`
+                        : 'USD'}
+                    ) to create a token
+                </AlertMsg>
+            )}
         </>
     );
 };
