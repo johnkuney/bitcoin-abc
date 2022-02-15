@@ -5,7 +5,6 @@ import { fromSmallestDenomination, getWalletState } from '@utils/cashMethods';
 import CreateTokenForm from '@components/Tokens/CreateTokenForm';
 import { currency } from '@components/Common/Ticker.js';
 import useBCH from '@hooks/useBCH';
-import TokenList from '@components/Wallet/TokenList';
 import BalanceHeader from '@components/Common/BalanceHeader';
 import BalanceHeaderFiat from '@components/Common/BalanceHeaderFiat';
 import {
@@ -54,6 +53,7 @@ const Tokens = ({ jestBCH, passLoadingStatus }) => {
                     fiatPrice={fiatPrice}
                 />
             </WalletInfoCtn>
+            <SidePaddingCtn>
             {apiError && <ApiError />}
             <CreateTokenForm
                 BCH={BCH}
@@ -86,6 +86,7 @@ const Tokens = ({ jestBCH, passLoadingStatus }) => {
                     ) to create a token
                 </AlertMsg>
             )}
+            </SidePaddingCtn>
         </>
     );
 };
