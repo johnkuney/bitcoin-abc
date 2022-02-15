@@ -5,6 +5,7 @@ import { fromSmallestDenomination, getWalletState } from '@utils/cashMethods';
 import CreateTokenForm from '@components/Tokens/CreateTokenForm';
 import { currency } from '@components/Common/Ticker.js';
 import useBCH from '@hooks/useBCH';
+import TokenList from '@components/Wallet/TokenList';
 import BalanceHeader from '@components/Common/BalanceHeader';
 import BalanceHeaderFiat from '@components/Common/BalanceHeaderFiat';
 import {
@@ -88,6 +89,13 @@ const Tokens = ({ jestBCH, passLoadingStatus }) => {
                             : 'USD'}
                         ) to create a token
                     </AlertMsg>
+                )}
+                {tokens && tokens.length > 0 ? (
+                    <>
+                        <TokenList tokens={tokens} />
+                    </>
+                ) : (
+                    <>No {currency.tokenTicker} tokens in this wallet</>
                 )}
             </SidePaddingCtn>
         </>
